@@ -1,0 +1,22 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 70px;
+  border-bottom: 1px solid $color-pink-dark;
+
+  &__imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; // ou cover selon ton besoin
+  }
+}

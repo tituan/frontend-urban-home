@@ -1,5 +1,5 @@
 .home {
-  height: 100vh; /* plein écran */
+  height: 100%; /* plein écran */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,5 +22,10 @@
   object-fit: contain; /* conserve les proportions */
   object-position: center;
   max-width: 800px;
-  margin: 0 auto;;
+  margin: 0 auto;
+  
+}
+
+.img {
+    height: auto;
 }

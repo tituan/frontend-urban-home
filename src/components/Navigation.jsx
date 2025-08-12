@@ -93,9 +93,9 @@ export default function Navigation() {
       {/* ===== Barre sticky commune mobile/desktop ===== */}
       <header className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""}`}>
         <div className={styles["nav__inner"]}>
-          <Link href="/" className={styles["nav__brand"]} aria-label="Accueil Clichy Urban Home">
-            CLICHY URBAN HOME
-          </Link>
+          {/* <Link href="/" className={styles["nav__brand"]} aria-label="Accueil Clichy Urban Home">
+            C.U.H.
+          </Link> */}
 
           {/* Nav desktop (masquée en mobile via CSS) */}
           <nav className={styles["nav__desktop-nav"]} aria-label="Navigation principale">

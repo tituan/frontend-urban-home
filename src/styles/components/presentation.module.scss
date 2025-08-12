@@ -1,0 +1,27 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.presentation {
+  padding: 50px 20px;
+  width: 100%;
+  background-color: $color-pink-dark;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $color-white;
+    @include font-size(22);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__text {
+    margin: 0 auto;
+    max-width: 650px;
+    @include font-size(14);
+    line-height: 2;
+    color: $color-white;
+    text-align: center;
+  }
+}
