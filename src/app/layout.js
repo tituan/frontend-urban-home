@@ -1,6 +1,8 @@
 import "../styles/main.scss";
-import Navigation from "@/components/Navigation"; // ⬅️ ajoute ceci
+import Navigation from "@/components/Navigation";
 import { Quicksand, Montserrat, Noto_Sans_Mono } from "next/font/google";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
