@@ -42,11 +42,8 @@
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4; // portrait
-  // border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 8px 24px $shadow-light;
-
-  /* ✅ Empêche l'image de coller aux bords */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,20 +56,15 @@
   cursor: pointer;
 }
 
-
-  /* Pas d'autre padding ici, sinon double espacement */
   &__item { /* vide volontairement */ }
 
   &__imgWrap {
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 4;       /* portrait */
-    // border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 24px $shadow-light;
   }
-
-  // &__img { object-fit: cover; }
 
   &__overlay {
     position: absolute;
@@ -82,22 +74,15 @@
     pointer-events: none;
   }
 
-  &__imgWrap:hover .flat__overlay { opacity: 0; }
-}
-
-/* dans flat-carousel.module.scss */
-
-.flat {
-  /* ... ton code existant ... */
-
-  &__slider {
-    /* ... tes règles slick-slide / slick-list ... */
+  &__imgWrap:hover .flat__overlay { 
+    @include desktop { 
+      opacity: 0; 
+    }
   }
 }
 
-/* ✅ cibler correctement les classes slick (globales) depuis un CSS module */
 .flat__slider :global(.slick-dots) {
-  bottom: -28px; /* espace sous le slider */
+  bottom: -28px; 
 
   li {
     margin: 0 6px;
@@ -108,24 +93,16 @@
       height: 15px;
     }
     button:before {
-      font-size: 14px;              /* plus gros que le défaut (~8px) */
-      color: $color-pink-dark;      /* ta couleur */
+      font-size: 14px;             
+      color: $color-pink-dark;     
       opacity: 0.6;
       transition: all .2s ease;
     }
 
     &.slick-active button:before {
-      font-size: 18px;              /* un peu plus gros quand actif */
-      color: $color-pink-dark;      /* couleur active */
+      font-size: 18px;            
+      color: $color-pink-dark;     
       opacity: 1;
     }
   }
-}
-
-/* Si le thème slick te réécrit la couleur, force l’override : */
-.flat__slider :global(.slick-dots li button:before) {
-  color: $color-pink-dark !important;
-}
-.flat__slider :global(.slick-dots li.slick-active button:before) {
-  color: $color-pink-dark !important;
 }
