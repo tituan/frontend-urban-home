@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${quicksand.variable} ${montserrat.variable} ${notoSansMono.variable}`}>
       <body>
-        <Navigation />   {/* ⬅️ navigation globale (burger mobile + barre desktop au scroll) */}
+        {/* <Navigation />   ⬅️ navigation globale (burger mobile + barre desktop au scroll) */}
         {children}
       </body>
     </html>

@@ -16,6 +16,7 @@
     @include font-size(22);
     text-transform: uppercase;
     text-align: center;
+    @include font-size(26);
   }
 
   &__text {
