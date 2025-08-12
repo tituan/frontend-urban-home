@@ -1,0 +1,20 @@
+// ---------- Couleurs principales ----------
+$color-dark: #232424;
+$color-black: #000;
+$color-white: #fff;
+$color-off-white: #fcfdf9;
+
+$color-pink-dark: #DF4040;
+$color-pink: #F892B3;
+$color-blue-dark: #1263B7;
+$color-blue: #67B2DE;
+
+// ---------- Opacités & overlays ----------
+$overlay-dark: rgba(35, 36, 36, 0.1);
+$shadow-light: rgba(0, 0, 0, 0.05);
+$shadow-medium: rgba(0, 0, 0, 0.2);
+
+// ---------- Fonts ----------
+$font-primary: var(--font-quicksand), sans-serif;
+$font-secondary: var(--font-montserrat), sans-serif;
+$font-mono: var(--font-noto-sans-mono), monospace;

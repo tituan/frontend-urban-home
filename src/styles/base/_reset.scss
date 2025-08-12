@@ -1,0 +1,73 @@
+/* RESET ULTRA-MINIMAL — tout est mis à nu */
+// Tous les navigateurs ont leurs propres styles par défaut (marges, tailles de titres, etc.). Un reset ou normalize CSS te permet de partir d’une base propre.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  appearance: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, figure {
+  margin: 0;
+  font: inherit;
+}
+
+:focus {
+  outline: none;
+}

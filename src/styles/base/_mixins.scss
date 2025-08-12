@@ -1,0 +1,22 @@
+// Breakpoints classiques (tu peux les adapter si besoin)
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// ✅ Usage : @include tablet { ... } ou @include desktop { ... }
+
+@mixin tablet{
+    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+      @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+        @content;
+    }
+}
+
+// Convertit automatiquement px → rem (base 16px)
+@mixin font-size($size) {
+    font-size: #{$size / 16}rem;
+}

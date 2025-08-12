@@ -1,0 +1,235 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.nav {
+  &__bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: $color-white;
+    border-bottom: 1px solid $overlay-dark;
+    transition: box-shadow 200ms ease, background 200ms ease;
+
+    &--scrolled {
+      box-shadow: 0 6px 20px $shadow-light;
+    }
+  }
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  }
+
+  &__brand {
+    font-family: $font-secondary;
+    font-weight: 600;
+    color: $color-pink-dark;
+    text-decoration: none;
+  }
+
+  /* ----- Burger (mobile) ----- */
+  &__burger {
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      width: 20px;
+      height: 2px;
+      background: $color-pink-dark;
+      margin: 2px 0;
+      display: block;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  /* ----- Nav desktop ----- */
+  &__desktop-nav {
+    display: none;
+
+    @include desktop {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include desktop {
+      display: flex;
+      gap: 18px;
+    }
+  }
+
+  &__item {
+    &--has-dropdown {
+      position: relative;
+
+      @include desktop {
+        &:hover .nav__dropdown,
+        &:focus-within .nav__dropdown {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-pink-dark;
+    @include font-size(14);
+    padding: 8px 4px;
+    display: inline-block;
+
+    &:hover {
+      opacity: 0.75;
+    }
+
+    &--sub {
+      padding: 8px 10px;
+    //   border-radius: 10px;
+
+      &:hover {
+        background: $overlay-dark;
+      }
+    }
+  }
+
+  &__dropdown {
+    @include desktop {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      background: $color-white;
+      border: 1px solid $overlay-dark;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px $shadow-light;
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: 160ms ease;
+    }
+  }
+
+  /* ----- Drawer mobile ----- */
+  &__drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(86vw, 360px);
+    background: $color-white;
+    z-index: 70;
+    box-shadow: -10px 0 30px $shadow-light;
+    transform: translateX(100%);
+    transition: transform 260ms ease;
+    display: flex;
+    flex-direction: column;
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  &__drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid $overlay-dark;
+  }
+
+  &__brand-small {
+    font-family: $font-secondary;
+    font-weight: 600;
+  }
+
+  &__close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  &__drawer-nav {
+    overflow-y: auto;
+  }
+
+  &__drawer-menu {
+    list-style: none;
+    margin: 0;
+    padding: 12px 12px 20px;
+    display: grid;
+    gap: 6px;
+  }
+
+  &__drawer-item {}
+
+  &__drawer-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__chevron {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    @include font-size(18);
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  &__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 220ms ease;
+    padding-left: 8px;
+    display: grid;
+    gap: 2px;
+
+    &--open {
+      max-height: 400px;
+    }
+  }
+
+  /* ----- Overlay ----- */
+  &__scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 65;
+    transition: opacity 200ms ease;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
