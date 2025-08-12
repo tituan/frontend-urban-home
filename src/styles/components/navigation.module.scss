@@ -7,7 +7,7 @@
     top: 0;
     z-index: 50;
     background: $color-white;
-    border-bottom: 1px solid $color-pink-dark;
+    border-bottom: 1px solid $color-pink;
     transition: box-shadow 200ms ease, background 200ms ease;
 
     &--scrolled {
@@ -116,7 +116,7 @@
       left: 0;
       min-width: 220px;
       background: $color-white;
-      border: 1px solid $overlay-dark;
+      border: 1px solid $color-pink-dark;
       border-radius: 12px;
       box-shadow: 0 12px 30px $shadow-light;
       padding: 8px;
@@ -155,12 +155,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 16px;
-    border-bottom: 1px solid $overlay-dark;
+    border-bottom: 1px solid $color-pink;
   }
 
   &__brand-small {
-    font-family: $font-secondary;
+    font-family: $font-primary;
     font-weight: 600;
+    color: $color-pink-dark;
   }
 
   &__close {
