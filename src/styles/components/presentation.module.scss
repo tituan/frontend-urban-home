@@ -19,7 +19,7 @@
   &__text {
     margin: 0 auto;
     max-width: 650px;
-    @include font-size(14);
+    @include font-size(16);
     line-height: 2;
     color: $color-white;
     text-align: center;
