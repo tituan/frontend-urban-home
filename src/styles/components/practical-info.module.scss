@@ -1,0 +1,100 @@
+@use "../base/mixins" as *;
+@use "../base/variables" as *;
+
+.practical {
+  width: 100%;
+  background-color: $color-pink-dark;
+  padding: 50px 20px;
+
+  @include desktop {
+    padding: 50px 20px 70px;
+  }
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    @include font-size(26);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* ✅ Toujours 1 colonne */
+    gap: 40px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  text-align: left;
+
+    &:hover .practical__overlay {
+      opacity: 0; /* Au hover, l’overlay disparaît */
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-primary;
+    font-weight: 600;
+    color: $color-white;
+    @include font-size(20);
+  }
+
+  &__desc {
+    font-family: $font-primary;
+    color: $color-white;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+
+  &__imgWrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(223, 64, 64, 0.3);
+    transition: opacity 180ms ease;
+    pointer-events: none;
+  }
+
+  &__links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  &__link {
+    font-family: $font-secondary;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid white;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: white;
+      color: $color-pink-dark;
+    }
+  }
+}
