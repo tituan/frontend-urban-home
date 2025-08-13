@@ -13,6 +13,13 @@ const DISTRICT_ITEMS = [
     imgAlt: "Cave à vin à Clichy",
   },
   {
+    title: "Rosette",
+    description: "Just a 15-minute walk from the apartment and proudly listed in the Michelin Guide’s Bib Gourmand selection. It serves refined, thoughtfully crafted dishes made with quality ingredients — all at a very reasonable price. A true gem in Clichy",
+    link: "https://maps.app.goo.gl/69maaQXCaiNhiWYD6",
+    imgSrc: "/img/district/rosette.webp",
+    imgAlt: "Rosette à Clichy",
+  },
+  {
     title: "La Fromagerie",
     description: "La fromagerie du Général, discover a selection of fine French cheeses, warmly served with exceptional hospitality — and take home a true taste of France to savor.",
     link: "https://www.google.com/maps/place/La+Fromagerie+du+G%C3%A9n%C3%A9ral/@48.9014321,2.3153564,67m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66fc2763db8b1:0xb8a446dea62070c8!8m2!3d48.9013224!4d2.3155804!16s%2Fg%2F11r8thcjc5!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
