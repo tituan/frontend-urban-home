@@ -55,22 +55,6 @@ const RESTAURANTS = [
     siteUrl: "https://www.boulom.net/",
     mapsUrl: "https://maps.app.goo.gl/iFpnDsN6bTATJ1nh7",
   },
-//   {
-//     title: "Sugo",
-//     description: "A pasta lover’s dream in Paris. This spot specializes in fresh, homemade pasta with a simple menu of timeless classics, all made in-house. If you’re serious about pasta, this is a must-visit. Pro tip: book a table in advance!",
-//     imgSrc: "/img/sugo.webp",
-//     imgAlt: "Sugo pasta",
-//     siteUrl: "https://www.sugoparis.com/",
-//     mapsUrl: "https://maps.app.goo.gl/UsLgBMbVLQnDbrSr7",
-//   },
-//   {
-//     title: "Guo Xin Ravioli",
-//     description: "A pasta lover’s dream in Paris. This spot specializes in fresh, homemade pasta with a simple menu of timeless classics, all made in-house. If you’re serious about pasta, this is a must-visit. Pro tip: book a table in advance!",
-//     imgSrc: "/img/sugo.webp",
-//     imgAlt: "Sugo pasta",
-//     siteUrl: "https://www.sugoparis.com/",
-//     mapsUrl: "https://maps.app.goo.gl/UsLgBMbVLQnDbrSr7",
-//   },
 ];
 
 export default function Food() {
