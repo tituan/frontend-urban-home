@@ -1,9 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import PresentationParis from "@/components/PresentationParis";
-import District from "@/components/District";
 import Footer from "@/components/Footer";
 import styles from "@/styles/pages/paris.module.scss";
+import Food from "@/components/FoodParis";
 
 export default function ParisPage() {
   return (
@@ -13,7 +13,7 @@ export default function ParisPage() {
         <main className={styles.main}>
           <Hero src="/img/paris-jetaime.png" alt="Paris Discover" isHeading />
           <PresentationParis />
-          {/* <section id="district"><District /></section> */}
+          <Food />
           <Footer />
         </main>
       </div>
