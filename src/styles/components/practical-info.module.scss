@@ -134,7 +134,16 @@
 
   &:hover {
     background-color: $color-pink;
-    color: white;
+    color: $color-white;
   }
 }
 
+.practical__imgB {
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+
+  @include desktop {
+    max-width: 400px; 
+  }
+}
