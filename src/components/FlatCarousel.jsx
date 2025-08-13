@@ -50,7 +50,7 @@ export default function FlatCarousel() {
   };
 
   return (
-    <section className={styles.flat} aria-label="Apartment gallery">
+    <section className={styles.flat} aria-label="Apartment gallery" id="flat">
       <h2 className={styles.flat__title}>The flat</h2>
 
       {/* key force Slick à se ré-initialiser quand on change de breakpoint */}

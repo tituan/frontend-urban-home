@@ -2,6 +2,9 @@
 @use './base/_variables';
 @use './base/_mixins';
 
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
@@ -23,3 +26,8 @@ a {
 body { font-family: var(--font-quicksand), sans-serif; }
 h1,h2,h3 { font-family: var(--font-montserrat), sans-serif; }
 code, pre { font-family: var(--font-noto-sans-mono), monospace; }
+
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h, 68px) - 5px); // petit espace sous la barre
+}

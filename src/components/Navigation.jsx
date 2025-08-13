@@ -1,57 +1,21 @@
 "use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "@/styles/components/navigation.module.scss";
 
-/**
- * NAV: une seule source de vérité
- * - type: "internal" | "external"
- * - children?: sous-liens (même schéma)
- */
+// Liens = ancres internes
 const NAV = [
-  { type: "internal", href: "/", label: "Home" },
-//   {
-//     type: "internal",
-//     href: "/carte",
-//     label: "Carte",
-//     children: [
-//       { type: "internal", href: "/carte#restos", label: "Restaurants" },
-//       { type: "internal", href: "/carte#shops", label: "Shops" },
-//       { type: "internal", href: "/carte#metro", label: "Métro & bus" },
-//     ],
-//   },
-   {
-    type: "internal",
-    href: "/district",
-    label: "District"
-  },
-  { type: "internal", 
-    href: "/things-to-do", 
-    label: "Things to Do" 
-},
-  {
-    type: "internal",
-    href: "/info",
-    label: "Info"
-  },
-  { type: "internal", 
-    href: "/guest", 
-    label: "Guest" 
-},
-  { type: "external", 
-    href: "https://www.paris.fr", 
-    label: "Paris" 
-},
+  { type: "anchor", targetId: "flat", label: "Flat" },
+  { type: "anchor", targetId: "district", label: "Hood" },
+  { type: "anchor", targetId: "info", label: "Info" },
 ];
 
 export default function Navigation() {
-  // tiroir mobile
   const [drawerOpen, setDrawerOpen] = useState(false);
-  // accordéon mobile: index du sous-menu ouvert
-  const [mobileOpenSub, setMobileOpenSub] = useState(null);
-  // état visuel (ombre) quand on n’est plus en haut
   const [atTop, setAtTop] = useState(true);
+  const barRef = useRef(null);
 
+  // Ombre sur la barre quand on n'est plus en haut
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY < 4);
     onScroll();
@@ -59,73 +23,72 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const closeAll = () => {
-    setDrawerOpen(false);
-    setMobileOpenSub(null);
+  // Met à jour la variable CSS pour scroll-margin-top
+  useEffect(() => {
+    const applyHeaderHeightVar = () => {
+      const h = barRef.current?.offsetHeight || 0;
+      document.documentElement.style.setProperty("--header-h", `${h}px`);
+    };
+    applyHeaderHeightVar();
+    window.addEventListener("resize", applyHeaderHeightVar);
+    return () => window.removeEventListener("resize", applyHeaderHeightVar);
+  }, []);
+
+  // Smooth scroll
+  const onNavClick = (e, item) => {
+    if (item.type === "anchor") {
+      e.preventDefault();
+      const el = document.getElementById(item.targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        setDrawerOpen(false);
+      }
+    }
   };
 
-  const renderLink = (item, key, isSub = false) => {
-    const className = isSub ? styles["nav__link"] + " " + styles["nav__link--sub"] : styles["nav__link"];
-
-    if (item.type === "internal") {
+  const renderLink = (item, key, extraClass = "") => {
+    if (item.type === "anchor") {
       return (
-        <Link key={key} href={item.href} className={className} onClick={() => setDrawerOpen(false)}>
+        <a
+          key={key}
+          href={`#${item.targetId}`}
+          className={`${styles["nav__link"]} ${extraClass}`}
+          onClick={(e) => onNavClick(e, item)}
+        >
           {item.label}
-        </Link>
+        </a>
       );
     }
-    return (
-      <a
-        key={key}
-        href={item.href}
-        className={className}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => setDrawerOpen(false)}
-      >
-        {item.label}
-      </a>
-    );
+    return null;
   };
+
+  const closeAll = () => setDrawerOpen(false);
 
   return (
     <>
-      {/* ===== Barre sticky commune mobile/desktop ===== */}
-      <header className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""}`}>
+      {/* ===== Barre sticky ===== */}
+      <header
+        ref={barRef}
+        className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""}`}
+      >
         <div className={styles["nav__inner"]}>
-          {/* <Link href="/" className={styles["nav__brand"]} aria-label="Accueil Clichy Urban Home">
-            C.U.H.
-          </Link> */}
-
-          {/* Nav desktop (masquée en mobile via CSS) */}
-          <nav className={styles["nav__desktop-nav"]} aria-label="Navigation principale">
+          {/* Nav desktop */}
+          <nav className={styles["nav__desktop-nav"]} aria-label="Main navigation">
             <ul className={styles["nav__menu"]}>
-              {NAV.map((item, i) => {
-                const hasChildren = Array.isArray(item.children) && item.children.length > 0;
-                return (
-                  <li
-                    key={`d-${i}`}
-                    className={`${styles["nav__item"]} ${hasChildren ? styles["nav__item--has-dropdown"] : ""}`}
-                  >
-                    {renderLink(item, `dl-${i}`)}
-
-                    {hasChildren && (
-                      <div className={styles["nav__dropdown"]} role="menu">
-                        {item.children.map((child, ci) => renderLink(child, `dls-${i}-${ci}`, true))}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
+              {NAV.map((item, i) => (
+                <li key={`d-${i}`} className={styles["nav__item"]}>
+                  {renderLink(item, `dl-${i}`)}
+                </li>
+              ))}
             </ul>
           </nav>
 
           {/* Burger mobile */}
           <button
             className={styles["nav__burger"]}
-            aria-label="Ouvrir le menu"
+            aria-label="Open menu"
             aria-expanded={drawerOpen}
-            onClick={() => setDrawerOpen(v => !v)}
+            onClick={() => setDrawerOpen((v) => !v)}
           >
             <span />
             <span />
@@ -134,7 +97,7 @@ export default function Navigation() {
         </div>
       </header>
 
-      {/* ===== Tiroir mobile (slide droite -> gauche) ===== */}
+      {/* ===== Tiroir mobile ===== */}
       <aside
         className={`${styles["nav__drawer"]} ${drawerOpen ? styles["nav__drawer--open"] : ""}`}
         role="dialog"
@@ -142,46 +105,18 @@ export default function Navigation() {
       >
         <div className={styles["nav__drawer-header"]}>
           <span className={styles["nav__brand-small"]}>CLICHY URBAN HOME</span>
-          <button className={styles["nav__close"]} aria-label="Fermer le menu" onClick={closeAll}>
+          <button className={styles["nav__close"]} aria-label="Close menu" onClick={closeAll}>
             ✕
           </button>
         </div>
 
-        <nav className={styles["nav__drawer-nav"]} aria-label="Menu mobile">
+        <nav className={styles["nav__drawer-nav"]} aria-label="Mobile navigation">
           <ul className={styles["nav__drawer-menu"]}>
-            {NAV.map((item, i) => {
-              const hasChildren = Array.isArray(item.children) && item.children.length > 0;
-              const opened = mobileOpenSub === i;
-
-              return (
-                <li key={`m-${i}`} className={styles["nav__drawer-item"]}>
-                  <div className={styles["nav__drawer-row"]}>
-                    {renderLink(item, `ml-${i}`)}
-                    {hasChildren && (
-                      <button
-                        className={styles["nav__chevron"]}
-                        aria-label={opened ? "Replier" : "Déplier"}
-                        aria-expanded={opened}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setMobileOpenSub(opened ? null : i);
-                        }}
-                      >
-                        ▾
-                      </button>
-                    )}
-                  </div>
-
-                  {hasChildren && (
-                    <div
-                      className={`${styles["nav__submenu"]} ${opened ? styles["nav__submenu--open"] : ""}`}
-                    >
-                      {item.children.map((child, ci) => renderLink(child, `mls-${i}-${ci}`, true))}
-                    </div>
-                  )}
-                </li>
-              );
-            })}
+            {NAV.map((item, i) => (
+              <li key={`m-${i}`} className={styles["nav__drawer-item"]}>
+                {renderLink(item, `ml-${i}`, styles["nav__link--drawer"])}
+              </li>
+            ))}
           </ul>
         </nav>
       </aside>

@@ -45,7 +45,7 @@ const VELIB = {
 
 export default function PracticalInfo() {
   return (
-    <section className={styles.practical}>
+    <section className={styles.practical} id="info">
       <div className={styles.practical__container}>
         <h2 className={styles.practical__title}>Practical Info</h2>
 

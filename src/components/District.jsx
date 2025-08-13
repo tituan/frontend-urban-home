@@ -51,7 +51,7 @@ const DISTRICT_ITEMS = [
 
 export default function District() {
   return (
-    <section className={styles.district} aria-label="Points d’intérêt du quartier">
+    <section className={styles.district} aria-label="Points d’intérêt du quartier" id="district">
       <h2 className={styles.district__title}>Hood</h2>
       <p className={styles.district__intro}>
         The neighborhood is a peaceful area where you can find everything you need — from a restaurant, a wine cellar, and a cheese shop to a bakery — offering plenty to enjoy and making it easy to savor the local life.
