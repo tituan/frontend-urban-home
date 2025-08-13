@@ -47,14 +47,14 @@ const RESTAURANTS = [
     siteUrl: "https://www.instagram.com/elnopalparis/?hl=fr",
     mapsUrl: "https://maps.app.goo.gl/3u2ecnwwAjgXhmED6",
   },
-//   {
-//     title: "Sugo",
-//     description: "A pasta lover’s dream in Paris. This spot specializes in fresh, homemade pasta with a simple menu of timeless classics, all made in-house. If you’re serious about pasta, this is a must-visit. Pro tip: book a table in advance!",
-//     imgSrc: "/img/sugo.webp",
-//     imgAlt: "Sugo pasta",
-//     siteUrl: "https://www.sugoparis.com/",
-//     mapsUrl: "https://maps.app.goo.gl/UsLgBMbVLQnDbrSr7",
-//   },
+  {
+    title: "B.O.U.L.O.M",
+    description: "Is a hidden gem in the north of the 18th arrondissement. From the outside, it may look like a simple bakery-restaurant, but walk through to the back and you’ll find a bright, spacious hall serving an all-you-can-eat French buffet. Cozy vibes, generous dishes, and authentic home-style cooking make it a true treat. Reservations are essential — and this is THE brunch to try in Paris.",
+    imgSrc: "/img/boulom.webp",
+    imgAlt: "B.O.U.L.O.M",
+    siteUrl: "https://www.boulom.net/",
+    mapsUrl: "https://maps.app.goo.gl/iFpnDsN6bTATJ1nh7",
+  },
 //   {
 //     title: "Sugo",
 //     description: "A pasta lover’s dream in Paris. This spot specializes in fresh, homemade pasta with a simple menu of timeless classics, all made in-house. If you’re serious about pasta, this is a must-visit. Pro tip: book a table in advance!",
