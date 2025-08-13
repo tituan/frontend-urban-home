@@ -1,5 +1,4 @@
 import "../styles/main.scss";
-import Navigation from "@/components/Navigation";
 import { Quicksand, Montserrat, Noto_Sans_Mono } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -44,7 +43,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${quicksand.variable} ${montserrat.variable} ${notoSansMono.variable}`}>
       <body>
-        <Navigation /> 
         {children}
       </body>
     </html>

@@ -1,21 +1,32 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import styles from "@/styles/components/navigation.module.scss";
 
-// Liens = ancres internes
-const NAV = [
-  { type: "anchor", targetId: "flat", label: "Flat" },
-  { type: "anchor", targetId: "district", label: "Hood" },
-  { type: "anchor", targetId: "info", label: "Info" },
+const HOME_ANCHORS = [
+  { targetId: "flat", label: "Flat" },
+  { targetId: "district", label: "Hood" },
+  { targetId: "info", label: "Info" },
+];
+
+const PARIS_ANCHORS = [
+  { targetId: "food", label: "Food" },
+  { targetId: "museum", label: "Museum" },
+  { targetId: "drink", label: "Drink" },
 ];
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === "";
+  const isParis = pathname === "/paris";
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
+  const [activeId, setActiveId] = useState(null);
   const barRef = useRef(null);
 
-  // Ombre sur la barre quand on n'est plus en haut
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY < 4);
     onScroll();
@@ -23,7 +34,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Met à jour la variable CSS pour scroll-margin-top
   useEffect(() => {
     const applyHeaderHeightVar = () => {
       const h = barRef.current?.offsetHeight || 0;
@@ -34,31 +44,112 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", applyHeaderHeightVar);
   }, []);
 
-  // Smooth scroll
-  const onNavClick = (e, item) => {
-    if (item.type === "anchor") {
-      e.preventDefault();
-      const el = document.getElementById(item.targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        setDrawerOpen(false);
+  useEffect(() => {
+    const anchors = isHome ? HOME_ANCHORS : isParis ? PARIS_ANCHORS : [];
+    if (!anchors.length) return;
+
+    const els = anchors.map(a => document.getElementById(a.targetId)).filter(Boolean);
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActiveId(visible.target.id);
+      },
+      {
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
       }
+    );
+
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [isHome, isParis]);
+
+  const handleAnchorClick = (e, targetId, page) => {
+    const onThisPage =
+      (page === "home" && isHome) ||
+      (page === "paris" && isParis);
+
+    if (!onThisPage) {
+      setDrawerOpen(false);
+      return;
     }
+
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setDrawerOpen(false);
   };
+
+  const desktopLinks = useMemo(() => {
+    if (isHome) {
+      return [
+        { type: "internal", href: "/", label: "Urban Home" },
+        ...HOME_ANCHORS.map(a => ({ type: "anchor", page: "home", ...a })),
+        { type: "internal", href: "/paris", label: "Discover Paris" },
+      ];
+    }
+    if (isParis) {
+      return [
+        { type: "internal", href: "/paris", label: "Discover Paris" },
+        ...PARIS_ANCHORS.map(a => ({ type: "anchor", page: "paris", ...a })),
+        { type: "internal", href: "/", label: "Urban Home" },
+        
+      ];
+    }
+    return [
+      { type: "internal", href: "/paris", label: "Discover Paris" },
+      { type: "internal", href: "/", label: "Urban Home" },
+    ];
+  }, [isHome, isParis]);
+
+  const linkClass = (base, isActive) =>
+    `${base} ${isActive ? styles["nav__link--active"] : ""}`;
 
   const renderLink = (item, key, extraClass = "") => {
     if (item.type === "anchor") {
+      const href =
+        item.page === "home"
+          ? (isHome ? `#${item.targetId}` : `/#${item.targetId}`)
+          : (isParis ? `#${item.targetId}` : `/paris#${item.targetId}`);
+
+      const isActiveHere =
+        (isHome && item.page === "home" && activeId === item.targetId) ||
+        (isParis && item.page === "paris" && activeId === item.targetId);
+
       return (
         <a
           key={key}
-          href={`#${item.targetId}`}
-          className={`${styles["nav__link"]} ${extraClass}`}
-          onClick={(e) => onNavClick(e, item)}
+          href={href}
+          className={linkClass(`${styles["nav__link"]} ${extraClass}`, isActiveHere)}
+          onClick={(e) => handleAnchorClick(e, item.targetId, item.page)}
         >
           {item.label}
         </a>
       );
     }
+
+    if (item.type === "internal") {
+      const isActive =
+        (item.href === "/paris" && isParis) ||
+        (item.href === "/" && isHome);
+
+      return (
+        <Link
+          key={key}
+          href={item.href}
+          className={linkClass(`${styles["nav__link"]} ${extraClass}`, isActive)}
+          onClick={() => setDrawerOpen(false)}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+
     return null;
   };
 
@@ -66,24 +157,20 @@ export default function Navigation() {
 
   return (
     <>
-      {/* ===== Barre sticky ===== */}
       <header
         ref={barRef}
-        className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""}`}
+        className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""} ${isParis ? styles["nav__bar--paris"] : ""}`}
       >
         <div className={styles["nav__inner"]}>
-          {/* Nav desktop */}
           <nav className={styles["nav__desktop-nav"]} aria-label="Main navigation">
             <ul className={styles["nav__menu"]}>
-              {NAV.map((item, i) => (
+              {desktopLinks.map((item, i) => (
                 <li key={`d-${i}`} className={styles["nav__item"]}>
                   {renderLink(item, `dl-${i}`)}
                 </li>
               ))}
             </ul>
           </nav>
-
-          {/* Burger mobile */}
           <button
             className={styles["nav__burger"]}
             aria-label="Open menu"
@@ -97,9 +184,8 @@ export default function Navigation() {
         </div>
       </header>
 
-      {/* ===== Tiroir mobile ===== */}
       <aside
-        className={`${styles["nav__drawer"]} ${drawerOpen ? styles["nav__drawer--open"] : ""}`}
+        className={`${styles["nav__drawer"]} ${drawerOpen ? styles["nav__drawer--open"] : ""} ${isParis ? styles["nav__drawer--paris"] : ""}`}
         role="dialog"
         aria-modal="true"
       >
@@ -109,10 +195,9 @@ export default function Navigation() {
             ✕
           </button>
         </div>
-
         <nav className={styles["nav__drawer-nav"]} aria-label="Mobile navigation">
           <ul className={styles["nav__drawer-menu"]}>
-            {NAV.map((item, i) => (
+            {desktopLinks.map((item, i) => (
               <li key={`m-${i}`} className={styles["nav__drawer-item"]}>
                 {renderLink(item, `ml-${i}`, styles["nav__link--drawer"])}
               </li>
@@ -121,9 +206,8 @@ export default function Navigation() {
         </nav>
       </aside>
 
-      {/* Overlay derrière tiroir */}
       <div
-        className={`${styles["nav__scrim"]} ${drawerOpen ? styles["nav__scrim--visible"] : ""}`}
+        className={`${styles["nav__scrim"]} ${drawerOpen ? styles["nav__scrim--visible"] : ""} ${isParis ? styles["nav__scrim--paris"] : ""}`}
         onClick={closeAll}
       />
     </>

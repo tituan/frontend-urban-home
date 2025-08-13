@@ -2,6 +2,7 @@
 @use "../base/mixins" as *;
 
 .nav {
+  
   &__bar {
     position: sticky;
     top: 0;
@@ -232,4 +233,67 @@
       pointer-events: auto;
     }
   }
+}
+
+.nav__link--active { color: $color-blue-dark; }
+
+// For Paris Page
+
+.nav__bar--paris {
+  border-bottom: 1px solid $color-blue;
+
+  /* liens du menu top */
+  .nav__link {
+    color: $color-blue-dark;
+  }
+  .nav__link:hover {
+    opacity: 0.8;
+  }
+
+  /* état actif (garde si tu veux plus contrasté) */
+  .nav__link--active {
+    color: $color-pink-dark;
+  }
+
+  /* marque si tu l’affiches */
+  .nav__brand {
+    color: $color-blue-dark;
+  }
+
+  /* burger : les barres sont des <span> */
+  .nav__burger span {
+    background: $color-blue-dark;
+  }
+
+  /* dropdown desktop si tu l’utilises */
+  .nav__dropdown {
+    border-color: $color-blue-dark;
+  }
+}
+
+/* Drawer (menu mobile) */
+.nav__drawer--paris {
+  /* si tu veux laisser le fond blanc, garde ceci vide, sinon: */
+  /* background: $color-white; */
+
+  .nav__drawer-header {
+    border-bottom: 1px solid $color-blue;
+  }
+
+  .nav__brand-small {
+    color: $color-blue-dark;
+  }
+
+  .nav__link--drawer {
+    color: $color-blue-dark;
+  }
+
+  .nav__chevron {
+    color: $color-blue-dark;
+  }
+}
+
+/* Overlay mobile (teinte bleutée) */
+.nav__scrim--paris {
+  background-color: rgba(18, 99, 183, 0.4);
 }
