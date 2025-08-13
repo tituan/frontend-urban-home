@@ -6,9 +6,9 @@
   justify-content: center;
   align-items: center;
   padding: 50px 0 70px;
-  border-bottom: 1px solid $color-pink-dark;
+  border-bottom: 1px solid transparent;
   &--variant {
-    border-bottom: 1px solid $color-blue-dark;
+    border-bottom: 1px solid transprent;
   }
   &__imageWrapper {
     display: flex;

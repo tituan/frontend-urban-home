@@ -1,83 +1,59 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import styles from "@/styles/pages/guest.module.scss";
 
-const ACCESS_CODE = "9275";        // Code à 4 chiffres
-const STORAGE_KEY = "guestAccess"; // Clé localStorage
+const ACCESS_CODE = "9275";
+const STORAGE_KEY = "guestAccess";
 
-export default function GuestAccessPage() {
-  const router = useRouter();
+export default function GuestAccess() {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
-  const onChange = useCallback((e) => {
-    // On ne garde que des chiffres, max 4
-    const next = e.target.value.replace(/\D/g, "").slice(0, 4);
-    setCode(next);
-    setError("");
-  }, []);
-
-  const onSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      if (code === ACCESS_CODE) {
-        try {
-          // Persiste l’accès côté client
-          localStorage.setItem(STORAGE_KEY, "true");
-        } catch {}
-        router.push("/guest/content");
-      } else {
-        setError("Wrong code, please try again.");
-      }
-    },
-    [code, router]
-  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (code === ACCESS_CODE) {
+      localStorage.setItem(STORAGE_KEY, "true");
+      router.push("/guest/content");
+    } else {
+      setError("Wrong code, please try again.");
+    }
+  };
 
   return (
     <div className="theme-guest">
-      {/* La navigation arrive depuis le layout. Ne pas la ré-importer ici */}
-      <main className={styles.container}>
-        <Hero
-          src="/img/paris-jetaime.png"
-          alt="Guest Corner"
-          isHeading
-          variant="guest"
-        />
+      {/* Nav visible sur la page /guest */}
+      <Navigation />
 
-        <form onSubmit={onSubmit} className={styles.form} noValidate>
-          <label htmlFor="guest-code" className={styles.label}>
-            Enter your 4-digit access code
-          </label>
+      <div className={styles.container}>
+        <Hero src="/img/guest-corner.png" alt="Guest Corner" isHeading />
 
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input
-            id="guest-code"
             type="password"
             inputMode="numeric"
             pattern="\d*"
             maxLength={4}
             value={code}
-            onChange={onChange}
-            placeholder="••••"
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+            placeholder="4-digit code"
             className={styles.input}
             aria-label="4-digit access code"
-            autoComplete="one-time-code"
             autoFocus
           />
-
-          <button type="submit" className={styles.button} disabled={code.length !== 4}>
-            Access
-          </button>
-
-          {error ? <p className={styles.error}>{error}</p> : null}
-
-          <p className={styles.hint}>
-            This private area contains apartment manuals and useful info for your stay.
-          </p>
+          <button type="submit" className={styles.button}>Access</button>
         </form>
-      </main>
+
+        {error && <p className={styles.error}>{error}</p>}
+
+        <p className={styles.hint}>
+          Tip: This area contains all apartment manuals and sensitive info.
+        </p>
+      </div>
     </div>
   );
 }
