@@ -1,0 +1,48 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.footer {
+  background-color: $color-pink-dark;
+  color: $color-white;
+  padding: 20px;
+  text-align: center;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__copy {
+    font-family: $font-primary;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  &__heart {
+    color: $color-white;
+    margin: 0 5px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
+}

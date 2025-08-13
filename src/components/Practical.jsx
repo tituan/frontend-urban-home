@@ -7,7 +7,7 @@ const LINES = [
   {
     name: "Line 14",
     description:
-      "Just a bit over 5 minutes from the apartment, Saint-Ouen station on Line 14 is the nearest stop and the newest, fully automated metro line in Paris. It runs from 5:30 AM to around 1:00 AM, connecting you to key landmarks such as Gare Saint-Lazare, Châtelet, Louvre Pyramide, Gare de Lyon, Bercy, Orly Airport, and even the Stade de France..",
+      "Just a bit over 5 minutes from the apartment, *Saint-Ouen station* on Line 14 is the nearest stop and the newest, fully automated metro line in Paris. It runs from 5:30 AM to around 1:00 AM, connecting you to key landmarks such as Gare Saint-Lazare, Châtelet, Louvre Pyramide, Gare de Lyon, Bercy, Orly Airport, and even the Stade de France.",
     imgSrc: "/img/ligne-14.webp",
     imgAlt: "Paris Metro Line 14 map",
     ratpLink: "https://www.bonjour-ratp.fr/lignes-metro/ligne-14/",
@@ -16,7 +16,7 @@ const LINES = [
   {
     name: "Line 13",
     description:
-      "A little further away, Mairie de Clichy station on Line 13 takes you directly to Champs-Élysées – Clemenceau, Montparnasse, and other iconic spots in Paris. A great alternative for exploring different parts of the city.",
+      "A little further away, *Mairie de Clichy station* on Line 13 takes you directly to Champs-Élysées – Clemenceau, Montparnasse, and other iconic spots in Paris. A great alternative for exploring different parts of the city.",
     imgSrc: "/img/ligne-13.webp",
     imgAlt: "Paris Metro Line 13 map",
     ratpLink: "https://www.ratp.fr/vos-lignes/metro/13",
