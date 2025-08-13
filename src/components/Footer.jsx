@@ -33,7 +33,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className={styles.footer__copy}>
-          © {new Date().getFullYear()} | Made with{" "}
+          © {new Date().getFullYear()} | Made by Me with{" "}
           <FontAwesomeIcon icon={faHeart} className={styles.footer__heart} />
         </p>
       </div>
