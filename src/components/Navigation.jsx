@@ -88,22 +88,22 @@ export default function Navigation() {
   const desktopLinks = useMemo(() => {
     if (isHome) {
       return [
-        { type: "internal", href: "/", label: "Urban Home" },
+        { type: "internal", href: "/", label: "Home" },
         ...HOME_ANCHORS.map(a => ({ type: "anchor", page: "home", ...a })),
         { type: "internal", href: "/paris", label: "Discover Paris" },
       ];
     }
     if (isParis) {
       return [
-        { type: "internal", href: "/paris", label: "Discover Paris" },
+        { type: "internal", href: "/", label: "Home" },
         ...PARIS_ANCHORS.map(a => ({ type: "anchor", page: "paris", ...a })),
-        { type: "internal", href: "/", label: "Urban Home" },
+        { type: "internal", href: "/paris", label: "Discover Paris" },
         
       ];
     }
     return [
       { type: "internal", href: "/paris", label: "Discover Paris" },
-      { type: "internal", href: "/", label: "Urban Home" },
+      { type: "internal", href: "/", label: "Home" },
     ];
   }, [isHome, isParis]);
 
