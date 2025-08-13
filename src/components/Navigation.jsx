@@ -105,8 +105,7 @@ export default function Navigation() {
     }
     if (isGuest) {
       return [
->>>>>>> guest-corner
-        
+
         { type: "internal", href: "/", label: "Home" },
         { type: "internal", href: "/paris", label: "Discover Paris" },
         { type: "internal", href: "/guest", label: "Guest Corner" },
