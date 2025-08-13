@@ -27,7 +27,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr; /* ✅ Toujours 1 colonne */
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
@@ -72,13 +72,13 @@
     object-fit: contain;
   }
 
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(223, 64, 64, 0.3);
-    transition: opacity 180ms ease;
-    pointer-events: none;
-  }
+  // &__overlay {
+  //   position: absolute;
+  //   inset: 0;
+  //   background: rgba(223, 64, 64, 0.3);
+  //   transition: opacity 180ms ease;
+  //   pointer-events: none;
+  // }
 
   &__links {
     display: flex;

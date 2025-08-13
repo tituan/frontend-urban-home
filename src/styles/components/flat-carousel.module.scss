@@ -67,12 +67,12 @@
     box-shadow: 0 8px 24px $shadow-light;
   }
 
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(223, 64, 64, 0.3);
-    transition: opacity 180ms ease;
-  }
+  // &__overlay {
+  //   position: absolute;
+  //   inset: 0;
+  //   background: rgba(223, 64, 64, 0.3);
+  //   transition: opacity 180ms ease;
+  // }
 
   &__imgWrap:hover .flat__overlay { 
     @include desktop { 

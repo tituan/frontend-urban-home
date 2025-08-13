@@ -6,13 +6,6 @@ import styles from "@/styles/components/district.module.scss";
 
 const DISTRICT_ITEMS = [
   {
-    title: "Coming Soon !",
-    description: "Alain Ducasse is transforming Clichy’s iconic modernist Maison du Peuple into an international temple of gastronomy.",
-    link: "https://www.google.com/maps/place/Maison+du+Peuple+de+Clichy/@48.9016779,2.3154569,222m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66f061c5a90f9:0x828cedbbe0662819!8m2!3d48.9011773!4d2.3148265!16s%2Fg%2F1233fy3n!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
-    imgSrc: "/img/district/halle-du-peuple.jpg",
-    imgAlt: "Restaurant à Clichy",
-  },
-  {
     title: "Cave à Vin",
     description: "Château Clichy offers wines from every French region, paired with fine charcuterie, for an authentic taste experience.",
     link: "https://www.google.com/maps/place/Ch%C3%A2teau+Clichy/@48.9017803,2.3146089,50m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66fffd0b44115:0x7181aaf8629ce280!8m2!3d48.9017348!4d2.3145579!16s%2Fg%2F11wr3lnwqm!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
@@ -46,6 +39,13 @@ const DISTRICT_ITEMS = [
     link: "https://www.google.com/maps/place/La+Tribu/@48.9018221,2.3122458,645m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
     imgSrc: "/img/district/tribue-clichy.webp",
     imgAlt: "La tribu à Clichy",
+  },
+  {
+    title: "Coming Soon !",
+    description: "Alain Ducasse is transforming Clichy’s iconic modernist Maison du Peuple into an international temple of gastronomy.",
+    link: "https://www.google.com/maps/place/Maison+du+Peuple+de+Clichy/@48.9016779,2.3154569,222m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66f061c5a90f9:0x828cedbbe0662819!8m2!3d48.9011773!4d2.3148265!16s%2Fg%2F1233fy3n!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
+    imgSrc: "/img/district/halle-du-peuple.jpg",
+    imgAlt: "Restaurant à Clichy",
   },
 ];
 
