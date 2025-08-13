@@ -35,10 +35,12 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-  text-align: left;
+    text-align: left;
 
     &:hover .practical__overlay {
-      opacity: 0; /* Au hover, l’overlay disparaît */
+      @include desktop {
+        opacity: 0;
+      }
     }
   }
 
@@ -87,15 +89,52 @@
   &__link {
     font-family: $font-secondary;
     font-size: 14px;
-    color: white;
+    color: $color-white;
     text-decoration: none;
     padding: 6px 12px;
-    border: 1px solid white;
+    border: 1px solid $color-white;
     transition: all 0.2s ease;
 
     &:hover {
-      background-color: white;
-      color: $color-pink-dark;
+      @include desktop {
+        background-color: $color-white;
+        color: $color-pink-dark;
+      }
     }
   }
 }
+
+.practical__app {
+  text-align: center;
+  margin-top: 20px;
+  font-family: $font-secondary;
+  color: white;
+  margin-bottom: 40px;
+
+  p {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+}
+
+.practical__appLinks {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.practical__appBtn {
+  background-color: $color-white;
+  color: $color-pink-dark;
+  padding: 8px 14px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background-color: $color-pink;
+    color: white;
+  }
+}
+

@@ -29,7 +29,30 @@ export default function PracticalInfo() {
     <section className={styles.practical}>
       <div className={styles.practical__container}>
         <h2 className={styles.practical__title}>Practical Info</h2>
-
+       <div className={styles.practical__app}>
+        <p>
+          Get your mobility on your phone – download the official Metro app here for tickets, maps, and more!  
+          Available in multiple languages.
+        </p>
+        <div className={styles.practical__appLinks}>
+          <a
+            href="https://apps.apple.com/fr/app/%C3%AEle-de-france-mobilit%C3%A9s/id484527651" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.practical__appBtn}
+          >
+            Download on iPhone
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.applidium.vianavigo&hl=fr&pli=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.practical__appBtn}
+          >
+            Download on Android
+          </a>
+        </div>
+      </div>
         <div className={styles.practical__grid}>
           {LINES.map((line, index) => (
             <div key={index} className={styles.practical__item}>
