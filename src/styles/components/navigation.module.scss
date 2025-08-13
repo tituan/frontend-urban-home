@@ -297,3 +297,64 @@
 .nav__scrim--paris {
   background-color: rgba(18, 99, 183, 0.4);
 }
+
+// For Guest Page
+
+.nav__bar--guest {
+  border-bottom: 1px solid $color-green;
+
+  /* liens du menu top */
+  .nav__link {
+    color: $color-green-dark;
+  }
+  .nav__link:hover {
+    opacity: 0.8;
+  }
+
+  /* état actif (garde si tu veux plus contrasté) */
+  .nav__link--active {
+    color: $color-green-dark;
+  }
+
+  /* marque si tu l’affiches */
+  .nav__brand {
+    color: $color-green-dark;
+  }
+
+  /* burger : les barres sont des <span> */
+  .nav__burger span {
+    background: $color-green-dark;
+  }
+
+  /* dropdown desktop si tu l’utilises */
+  .nav__dropdown {
+    border-color: $color-green-dark;
+  }
+}
+
+/* Drawer (menu mobile) */
+.nav__drawer--guest {
+  /* si tu veux laisser le fond blanc, garde ceci vide, sinon: */
+  /* background: $color-white; */
+
+  .nav__drawer-header {
+    border-bottom: 1px solid $color-green;
+  }
+
+  .nav__brand-small {
+    color: $color-green-dark;
+  }
+
+  .nav__link--drawer {
+    color: $color-green-dark;
+  }
+
+  .nav__chevron {
+    color: $color-green-dark;
+  }
+}
+
+/* Overlay mobile (teinte bleutée) */
+.nav__scrim--paris {
+  background-color: rgba(18, 99, 183, 0.4);
+}

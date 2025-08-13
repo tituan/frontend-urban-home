@@ -13,7 +13,7 @@ const HOME_ANCHORS = [
 
 const PARIS_ANCHORS = [
   { targetId: "food", label: "Food" },
-  { targetId: "museum", label: "Museum" },
+  // { targetId: "museum", label: "Museum" },
   { targetId: "drink", label: "Drink" },
 ];
 
@@ -21,6 +21,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const isHome = pathname === "/" || pathname === "";
   const isParis = pathname === "/paris";
+  const isGuest = pathname.startsWith("/guest");
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
@@ -91,6 +92,7 @@ export default function Navigation() {
         { type: "internal", href: "/", label: "Home" },
         ...HOME_ANCHORS.map(a => ({ type: "anchor", page: "home", ...a })),
         { type: "internal", href: "/paris", label: "Discover Paris" },
+        { type: "internal", href: "/guest", label: "Guest Corner" },
       ];
     }
     if (isParis) {
@@ -98,14 +100,24 @@ export default function Navigation() {
         { type: "internal", href: "/", label: "Home" },
         ...PARIS_ANCHORS.map(a => ({ type: "anchor", page: "paris", ...a })),
         { type: "internal", href: "/paris", label: "Discover Paris" },
+        { type: "internal", href: "/guest", label: "Guest Corner" },
+      ];
+    }
+    if (isGuest) {
+      return [
+>>>>>>> guest-corner
         
+        { type: "internal", href: "/", label: "Home" },
+        { type: "internal", href: "/paris", label: "Discover Paris" },
+        { type: "internal", href: "/guest", label: "Guest Corner" },
       ];
     }
     return [
       { type: "internal", href: "/paris", label: "Discover Paris" },
       { type: "internal", href: "/", label: "Home" },
+      { type: "internal", href: "/guest", label: "Guest Corner" },
     ];
-  }, [isHome, isParis]);
+  }, [isHome, isParis, isGuest]);
 
   const linkClass = (base, isActive) =>
     `${base} ${isActive ? styles["nav__link--active"] : ""}`;
@@ -136,7 +148,8 @@ export default function Navigation() {
     if (item.type === "internal") {
       const isActive =
         (item.href === "/paris" && isParis) ||
-        (item.href === "/" && isHome);
+        (item.href === "/" && isHome) ||
+        (item.href === "/guest" && isGuest);
 
       return (
         <Link
@@ -159,7 +172,10 @@ export default function Navigation() {
     <>
       <header
         ref={barRef}
-        className={`${styles["nav__bar"]} ${!atTop ? styles["nav__bar--scrolled"] : ""} ${isParis ? styles["nav__bar--paris"] : ""}`}
+        className={`${styles["nav__bar"]} 
+          ${!atTop ? styles["nav__bar--scrolled"] : ""} 
+          ${isParis ? styles["nav__bar--paris"] : ""} 
+          ${isGuest ? styles["nav__bar--guest"] : ""}`}
       >
         <div className={styles["nav__inner"]}>
           <nav className={styles["nav__desktop-nav"]} aria-label="Main navigation">
@@ -185,7 +201,10 @@ export default function Navigation() {
       </header>
 
       <aside
-        className={`${styles["nav__drawer"]} ${drawerOpen ? styles["nav__drawer--open"] : ""} ${isParis ? styles["nav__drawer--paris"] : ""}`}
+        className={`${styles["nav__drawer"]} 
+          ${drawerOpen ? styles["nav__drawer--open"] : ""} 
+          ${isParis ? styles["nav__drawer--paris"] : ""} 
+          ${isGuest ? styles["nav__drawer--guest"] : ""}`}
         role="dialog"
         aria-modal="true"
       >
@@ -207,7 +226,10 @@ export default function Navigation() {
       </aside>
 
       <div
-        className={`${styles["nav__scrim"]} ${drawerOpen ? styles["nav__scrim--visible"] : ""} ${isParis ? styles["nav__scrim--paris"] : ""}`}
+        className={`${styles["nav__scrim"]} 
+          ${drawerOpen ? styles["nav__scrim--visible"] : ""} 
+          ${isParis ? styles["nav__scrim--paris"] : ""} 
+          ${isGuest ? styles["nav__scrim--guest"] : ""}`}
         onClick={closeAll}
       />
     </>
