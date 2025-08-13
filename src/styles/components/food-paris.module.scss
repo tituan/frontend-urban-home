@@ -15,8 +15,7 @@
     font-family: $font-primary;
     font-weight: 700;
     text-transform: uppercase;
-    color: $color-blue-dark; // sera bleu si tu es en thème Paris et overrides
-    // text-align: center;
+    color: $color-blue-dark;
     margin-bottom: 12px;
     @include font-size(26);
   }
@@ -24,7 +23,6 @@
   &__intro {
     max-width: 800px;
     margin: 0 0 28px;
-    // text-align: center;
     font-family: $font-primary;
     line-height: 1.55;
     color: $color-blue-dark;
@@ -32,20 +30,21 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr;       // mobile: 1 par ligne
+    grid-template-columns: 1fr;      
     gap: 20px;
 
     @include desktop {
-      grid-template-columns: repeat(3, 1fr); // desktop: 3 par ligne
+      grid-template-columns: repeat(3, 1fr);
       gap: 26px;
     }
   }
 
   &__card {
     background: $color-white;
-    border: 1px solid $overlay-dark;
+    border: 1px solid $color-blue;
     box-shadow: 0 8px 24px $shadow-light;
     overflow: hidden;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
   }
