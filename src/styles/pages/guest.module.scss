@@ -1,0 +1,74 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.form {
+  margin-top: 24px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.code {
+  display: flex;
+  gap: 12px;
+
+  &--error {
+    animation: shake 180ms ease-in-out 0s 1;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(-6px) }
+  50% { transform: translateX(6px) }
+  75% { transform: translateX(-4px) }
+  100% { transform: translateX(0) }
+}
+
+.digit {
+  width: 56px;
+  height: 64px;
+  text-align: center;
+  border: 2px solid $color-green-dark;
+  border-radius: 12px;
+  background: $color-white;
+  outline: none;
+
+  // chiffres plus visibles
+  font-family: $font-primary;
+  font-weight: 700;
+  @include font-size(24);
+  line-height: 1;
+
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 80ms ease;
+
+  &:focus {
+    border-color: $color-green;
+    box-shadow: 0 6px 18px $shadow-light;
+    transform: translateY(-1px);
+  }
+
+  // masquage type password → points propres
+  &::-ms-reveal,
+  &::-ms-clear { display: none; }
+}
+
+.hint {
+  color: $color-green-dark;
+  opacity: 0.85;
+  text-align: center;
+  @include font-size(14);
+}
+
+.error {
+  color: $color-green-dark;
+  font-weight: 700;
+  text-align: center;
+  @include font-size(14);
+}
