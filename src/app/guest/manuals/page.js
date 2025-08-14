@@ -154,7 +154,12 @@ Pour the detergent into compartment number 2, and if you are using fabric soften
               close it properly and change the code after locking.
             </div>
           </li>
-
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🪟</span>
+            <div>
+              <strong>Windows</strong> – Don’t forget to close all the windows before leaving.
+            </div>
+          </li>
           <li className={styles.checkout__item}>
             <span className={styles.checkout__icon} aria-hidden>📩</span>
             <div>
