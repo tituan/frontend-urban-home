@@ -42,7 +42,7 @@ const DISTRICT_ITEMS = [
   },
   {
     title: "AsianFood",
-    description: "Le Mékong a cozy neighborhood Asian restaurant serving generous and delicious bún bò. Friendly staff and a warm atmosphere make it a go-to spot. Just steps from the apartment, perfect for anyone craving a BoBun fix!",
+    description: "Le Mékong a cozy neighborhood Asian restaurant serving generous and delicious Bo-Bun. Friendly staff and a warm atmosphere make it a go-to spot. Just steps from the apartment, perfect for anyone craving a Bo-Bun fix!",
     link: "https://maps.app.goo.gl/pnAyF7hQNSdoAEsr9",
     imgSrc: "/img/asia.jpg",
     imgAlt: "La tribu à Clichy",
