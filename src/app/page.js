@@ -6,6 +6,7 @@ import District from "@/components/District";
 import PracticalInfo from "@/components/Practical";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import NearbyHome from "@/components/NearbyHome";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           <FlatCarousel />
           <District />
           <PracticalInfo />
+          <NearbyHome />
           <Footer />
         </main>
       </div>

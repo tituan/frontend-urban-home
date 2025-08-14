@@ -1,0 +1,123 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.nearby {
+  padding: 50px 20px;
+  width: 100%;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-pink-dark; // home = thème rose
+    margin-bottom: 10px;
+    @include font-size(26);
+  }
+
+  &__intro {
+    font-family: $font-secondary;
+    color: $color-pink-dark;
+    max-width: 800px;
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+
+  /* GRID: 1 col mobile, 3 cols desktop */
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: stretch;
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+
+  /* CARD: encadré + layout flex pour coller l’action en bas */
+  &__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $color-pink-dark;
+    border-radius: 12px;
+    background: $color-pink-dark;
+    overflow: hidden;
+  }
+
+  &__imgWrap {
+    position: relative;
+    aspect-ratio: 1 / 1; /* carré */
+    overflow: hidden;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+
+  /* Survol : atténue l’overlay */
+  &__card:hover &__overlay {
+    opacity: 0;
+  }
+
+  &__cardTitle,
+  &__cardDesc,
+  &__actions {
+    padding: 10px 12px;
+  }
+
+  &__cardTitle {
+    margin-top: 10px;
+    font-family: $font-primary;
+    font-weight: 700;
+    color: $color-white;
+    @include font-size(18);
+    padding-top: 12px;
+  }
+
+  &__cardDesc {
+    font-family: $font-secondary;
+    color: $color-white;
+    @include font-size(14);
+    margin-top: 6px;
+    line-height: 1.5;
+    padding-top: 0;
+  }
+
+  &__actions {
+    margin-top: auto; /* colle le bouton en bas */
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 14px;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid $color-white;
+    color: $color-white;
+    text-decoration: none;
+    border-radius: 8px;
+    @include font-size(14);
+    transition: 160ms ease;
+
+    &:hover {
+      color: $color-pink-dark;
+       background-color: $color-white;
+    }
+  }
+
+  &__icon {
+    @include font-size(16);
+  }
+}
