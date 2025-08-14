@@ -17,6 +17,15 @@ const SPOTS = [
     mapsUrl: "https://maps.app.goo.gl/mqkgjgAwuPJ9haSY6",
   },
   {
+    title: "Street ART 13",
+    description:
+      "Take a stroll through the 13th arrondissement and discover a true open-air museum. Over the years, world-renowned street artists have transformed building facades into massive works of art, giving the neighborhood a vibrant, creative vibe. This project, initiated by Galerie Itinerrance, has brought in some of the most famous names in the scene, including Obey (Shepard Fairey), C215, D*Face, and many more. A must-see for street art lovers and urban explorers.",
+    imgSrc: "/img/streetart.jpg",
+    imgAlt: "Street ART 13",
+    siteUrl: "https://itinerrance.fr/app/uploads/2016/01/DP-StreetArt13-FR_19_06_2015.pdf",
+    mapsUrl: "https://maps.app.goo.gl/v5zg44EU1hnSTDeA6",
+  },
+  {
     title: "SPA by SOTHYS",
     description:
       "An oasis of calm and well-being in the heart of Paris. Here, you can enjoy a hammam, sauna, and hot baths, followed by your choice of relaxing massages. It’s the perfect way to unwind and recharge after a day of sightseeing. The most popular package combines 1 hour of spa access (hammam, sauna, etc.) with a 1-hour massage — all at a reasonable, accessible price. To complete the experience, you can enjoy a drink at the hotel bar afterwards.",
@@ -60,6 +69,15 @@ const SPOTS = [
     imgAlt: "Maison Berthillon",
     siteUrl: "https://berthillon.fr/",
     mapsUrl: "https://maps.app.goo.gl/cC92FSFJvavenNry9",
+  },
+  {
+    title: "Église de Saint-Germain-des-Prés",
+    description:
+      "One of the best artisanal ice creams in Paris, Maison Berthillon is famous for its delicious, high-quality flavors, whether enjoyed on the spot or taken to go. It’s so good that there’s almost always a line — but trust me, it’s worth the wait. Once you have your cone or cup, stroll over to the quays of Île Saint-Louis and savor it by the Seine. A simple, nostalgic pleasure that feels purely magical.",
+    imgSrc: "/img/saintgermain.webp",
+    imgAlt: "Eglise Saint Germain",
+    siteUrl: "https://eglise-saintgermaindespres.fr/",
+    mapsUrl: "https://maps.app.goo.gl/6H733CUyEw89Cn6FA",
   },
 ];
 
