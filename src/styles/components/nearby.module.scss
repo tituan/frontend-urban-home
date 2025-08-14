@@ -73,7 +73,6 @@
   }
 
   &__cardTitle {
-    margin-top: 10px;
     font-family: $font-primary;
     font-weight: 700;
     color: $color-white;
@@ -85,7 +84,6 @@
     font-family: $font-secondary;
     color: $color-white;
     @include font-size(14);
-    margin-top: 6px;
     line-height: 1.5;
     padding-top: 0;
   }

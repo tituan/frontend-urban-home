@@ -18,7 +18,7 @@ const NEARBY_SPOTS = [
   {
     title: "Tabac",
     description:
-      "Cigarettes, stamps ... all the essentials just steps away.",
+      "Cigarettes, stamps... all the essentials just steps away.",
     imgSrc: "/img/tabac.jpg",
     imgAlt: "Tabac near the apartment",
     mapsUrl: "https://maps.app.goo.gl/jgQ9twac5bmxc2qAA",
@@ -27,7 +27,7 @@ const NEARBY_SPOTS = [
   {
     title: "Cobbler",
     description:
-      "Shoe repair, key cutting, leather care — quick and convenient.",
+      "Shoe repair, key cutting, leather care, quick and convenient.",
     imgSrc: "/img/cordonier.png",
     imgAlt: "Cobbler near the apartment",
     mapsUrl: "https://maps.app.goo.gl/91QjsojA55STUBzv9",
