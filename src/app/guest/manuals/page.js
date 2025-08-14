@@ -109,6 +109,63 @@ Pour the detergent into compartment number 2, and if you are using fabric soften
             </div>
         </div>
         </section>
+        <section id="checkout" className={styles.checkout} aria-labelledby="checkout-title">
+      <div className={styles.checkout__container}>
+        <h2 id="checkout-title" className={styles.checkout__title}>Checkout Procedure</h2>
+        <p className={styles.checkout__intro}>
+          Before leaving the apartment, please follow these simple steps:
+        </p>
+
+        <ol className={styles.checkout__list}>
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🗑</span>
+            <div>
+              <strong>Trash</strong> – Please throw the garbage in the containers located on the
+              ground floor, in front of the staircase door.
+            </div>
+          </li>
+
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🛁</span>
+            <div>
+              <strong>Towels</strong> – Leave the used towels on top of the washing machine.
+            </div>
+          </li>
+
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🍽</span>
+            <div>
+              <strong>Dishes</strong> – Make sure there are no dirty dishes left in the kitchen sink.
+            </div>
+          </li>
+
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🎒</span>
+            <div>
+              <strong>Personal items</strong> – Double-check that you haven’t left anything behind in the apartment.
+            </div>
+          </li>
+
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>🔑</span>
+            <div>
+              <strong>Keys</strong> – Place the apartment key in the secure lockbox located outside.
+              Use the code <strong className={styles.checkout__code}>****</strong> to open it. Make sure to
+              close it properly and change the code after locking.
+            </div>
+          </li>
+
+          <li className={styles.checkout__item}>
+            <span className={styles.checkout__icon} aria-hidden>📩</span>
+            <div>
+              <strong>Departure confirmation</strong> – Please send me a quick message once you have left the apartment.
+            </div>
+          </li>
+        </ol>
+
+        <p className={styles.checkout__thanks}>Thank you and safe travels! — Antoine</p>
+      </div>
+    </section>
 
     </div>
   );

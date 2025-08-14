@@ -131,6 +131,7 @@ export default function GuestAccess() {
           </p>
           {error && <p className={styles.error}>{error}</p>}
         </div>
+        
       </div>
     </div>
   );
