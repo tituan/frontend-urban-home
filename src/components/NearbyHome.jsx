@@ -11,7 +11,7 @@ const NEARBY_SPOTS = [
     title: "Pharmacy",
     description:
       "Your go-to for medication, advice, and essentials.",
-    imgSrc: "/img/pharmacie.webp",
+    imgSrc: "/img/pharmacie.jpg",
     imgAlt: "Pharmacy near the apartment",
     mapsUrl: "https://maps.app.goo.gl/vWsVeXoe98iBuLBw6",
   },
@@ -28,7 +28,7 @@ const NEARBY_SPOTS = [
     title: "Cobbler",
     description:
       "Shoe repair, key cutting, leather care, quick and convenient.",
-    imgSrc: "/img/cordonier.png",
+    imgSrc: "/img/cordonier.jpg",
     imgAlt: "Cobbler near the apartment",
     mapsUrl: "https://maps.app.goo.gl/91QjsojA55STUBzv9",
   },
@@ -36,7 +36,7 @@ const NEARBY_SPOTS = [
     title: "BIG Supermarket",
     description:
       "All your daily groceries with extended hours and great selection.",
-    imgSrc: "/img/lecler02.webp",
+    imgSrc: "/img/lecler02.jpg",
     imgAlt: "Supermarket near the apartment",
     mapsUrl: "https://maps.app.goo.gl/RZAD9HDbf2jkVtFXA",
   },

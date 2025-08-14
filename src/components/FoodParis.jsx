@@ -10,7 +10,7 @@ const RESTAURANTS = [
   {
     title: "Bouillon Chartier",
     description: " My favorite bouillon in Paris! Authentic, simple, with a super affordable menu and a setting that instantly takes you back to the Paris of the bouillon era. A real time travel… without breaking the bank.",
-    imgSrc: "/img/chartier.webp",
+    imgSrc: "/img/chartier.jpg",
     imgAlt: "Bouillon Chartier",
     siteUrl: "https://www.bouillon-chartier.com/",
     mapsUrl: "https://maps.app.goo.gl/nUUBFjresSEwNne99",
@@ -18,7 +18,7 @@ const RESTAURANTS = [
   {
     title: "Faggio",
     description: "Located in the 9th arrondissement, this spot serves delicious pizzas with perfectly crispy crusts, best enjoyed with a good Italian wine. Friendly service, and if you grab a seat on the small outdoor terrace, you can watch the world go by.",
-    imgSrc: "/img/faggio.webp",
+    imgSrc: "/img/faggio.jpg",
     imgAlt: "Faggio Paris pizza",
     siteUrl: "https://www.instagram.com/faggio_rochechouart/?hl=fr",
     mapsUrl: "https://maps.app.goo.gl/gMXvDk99J4sU23oh7",
@@ -26,7 +26,7 @@ const RESTAURANTS = [
   {
     title: "Colline d'Asie",
     description: "At the foot of Sacré-Cœur, this neighborhood institution serves up delicious bún bò for every taste. The menu also features other Asian dishes and a daily special. If you’re in the 18th and craving bún bò, this spot is a must-try.",
-    imgSrc: "/img/colline-dasie.webp",
+    imgSrc: "/img/colline-dasie.jpg",
     imgAlt: "Colline d'asie",
     siteUrl: "https://www.instagram.com/collinedasie_delsarte/",
     mapsUrl: "https://maps.app.goo.gl/bmdCgh7jnaW1mZ8t9",
@@ -50,7 +50,7 @@ const RESTAURANTS = [
   {
     title: "B.O.U.L.O.M",
     description: "Is a hidden gem in the north of the 18th arrondissement. From the outside, it may look like a simple bakery-restaurant, but walk through to the back and you’ll find a bright, spacious hall serving an all-you-can-eat French buffet. Cozy vibes, generous dishes, and authentic home-style cooking make it a true treat. Reservations are essential — and this is THE brunch to try in Paris.",
-    imgSrc: "/img/boulom.webp",
+    imgSrc: "/img/boulom.jpg",
     imgAlt: "B.O.U.L.O.M",
     siteUrl: "https://www.boulom.net/",
     mapsUrl: "https://maps.app.goo.gl/iFpnDsN6bTATJ1nh7",

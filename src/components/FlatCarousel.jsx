@@ -6,8 +6,8 @@ import Image from "next/image";
 import styles from "@/styles/components/flat-carousel.module.scss";
 
 const IMAGES = [
-  { src: "/img/home-01.png", alt: "Antoine HOMe" },
-  { src: "/img/home-02.png", alt: "Antoine HOMe" },
+  { src: "/img/home-01.jpg", alt: "Antoine HOMe" },
+  { src: "/img/home-02.jpg", alt: "Antoine HOMe" },
   { src: "/img/home-08.jpg", alt: "Antoine HOMe" },
   { src: "/img/home-10.jpg", alt: "Antoine HOMe" },
   { src: "/img/home-11.jpg", alt: "Antoine HOMe" },

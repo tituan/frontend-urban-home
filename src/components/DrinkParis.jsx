@@ -10,7 +10,7 @@ const DRINK = [
   {
     title: "Le Syndicat",
     description: "Cocktail bar with a mission — showcasing French spirits in ways you’ve never experienced before. Every drink is a creative twist on tradition, blending bold flavors with undeniable French charm. The urban, understated décor sets the stage for a night of cocktails and music, while the exceptional bartenders deliver unmatched craftsmanship in every glass. This is where mixology meets art.",
-    imgSrc: "/img/syndicat.webp",
+    imgSrc: "/img/syndicat.jpg",
     imgAlt: "Le Syndicat",
     siteUrl: "https://domainesyndicat.com/",
     mapsUrl: "https://maps.app.goo.gl/JaN8TgocVD9WVsrK9",
@@ -50,7 +50,7 @@ const DRINK = [
 //   {
 //     title: "B.O.U.L.O.M",
 //     description: "Is a hidden gem in the north of the 18th arrondissement. From the outside, it may look like a simple bakery-restaurant, but walk through to the back and you’ll find a bright, spacious hall serving an all-you-can-eat French buffet. Cozy vibes, generous dishes, and authentic home-style cooking make it a true treat. Reservations are essential — and this is THE brunch to try in Paris.",
-//     imgSrc: "/img/boulom.webp",
+//     imgSrc: "/img/boulom.jpg",
 //     imgAlt: "B.O.U.L.O.M",
 //     siteUrl: "https://www.boulom.net/",
 //     mapsUrl: "https://maps.app.goo.gl/iFpnDsN6bTATJ1nh7",
