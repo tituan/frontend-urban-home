@@ -6,18 +6,11 @@ import styles from "@/styles/components/district.module.scss";
 
 const DISTRICT_ITEMS = [
   {
-    title: "Cave à Vin",
+    title: "A bottle of Wine please !",
     description: "Château Clichy offers wines from every French region, paired with fine charcuterie, for an authentic taste experience.",
     link: "https://www.google.com/maps/place/Ch%C3%A2teau+Clichy/@48.9017803,2.3146089,50m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66fffd0b44115:0x7181aaf8629ce280!8m2!3d48.9017348!4d2.3145579!16s%2Fg%2F11wr3lnwqm!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
     imgSrc: "/img/district/chateau-clichy.jpg",
     imgAlt: "Cave à vin à Clichy",
-  },
-  {
-    title: "Rosette",
-    description: "Just a 15-minute walk from the apartment and proudly listed in the Michelin Guide’s Bib Gourmand selection. It serves refined, thoughtfully crafted dishes made with quality ingredients — all at a very reasonable price. A true gem in Clichy",
-    link: "https://maps.app.goo.gl/69maaQXCaiNhiWYD6",
-    imgSrc: "/img/district/rosette.webp",
-    imgAlt: "Rosette à Clichy",
   },
   {
     title: "La Fromagerie",
@@ -34,18 +27,46 @@ const DISTRICT_ITEMS = [
     imgAlt: "Boulangerie à Clichy",
   },
   {
-    title: "Pizza !",
+    title: "Pizza Time !",
     description: "Pizzeria Marguerite serves delicious pizzas from a varied menu, available to enjoy on-site or take away, in a modern setting with friendly staff — a must-visit when a pizza craving strikes.",
     link: "https://www.google.com/maps/place/Marguerite+-+Restaurant+Italien+Clichy/@48.9015526,2.3155077,90m/data=!3m1!1e3!4m14!1m7!3m6!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!2sLa+Tribu!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!3m5!1s0x47e66f060b671215:0x90079723d14576d2!8m2!3d48.9018578!4d2.3159137!16s%2Fg%2F11bzsd0d4z!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
     imgSrc: "/img/district/pizzeria-marguerite.webp",
     imgAlt: "Pizza à Clichy",
   },
   {
-    title: "Good Restaurant",
+    title: "GOOD French Restaurant",
     description: "La Tribu, a cozy neighborhood restaurant serving homemade, seasonal dishes that evoke the warmth of family meals and timeless comfort food.",
     link: "https://www.google.com/maps/place/La+Tribu/@48.9018221,2.3122458,645m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47e66f65e0fd3415:0xd4a31f16235b7c57!8m2!3d48.9018186!4d2.3148207!16s%2Fg%2F11jz08jghm!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
     imgSrc: "/img/district/tribue-clichy.webp",
     imgAlt: "La tribu à Clichy",
+  },
+  {
+    title: "AsianFood",
+    description: "Le Mékong a cozy neighborhood Asian restaurant serving generous and delicious bún bò. Friendly staff and a warm atmosphere make it a go-to spot. Just steps from the apartment, perfect for anyone craving a BoBun fix!",
+    link: "https://maps.app.goo.gl/pnAyF7hQNSdoAEsr9",
+    imgSrc: "/img/asia.webp",
+    imgAlt: "La tribu à Clichy",
+  },
+  {
+    title: "Restaurant Rosette",
+    description: "Just a 15-minute walk from the apartment and proudly listed in the Michelin Guide’s Bib Gourmand selection. It serves refined, thoughtfully crafted dishes made with quality ingredients — all at a very reasonable price. A true gem in Clichy",
+    link: "https://maps.app.goo.gl/69maaQXCaiNhiWYD6",
+    imgSrc: "/img/district/rosette.webp",
+    imgAlt: "Rosette à Clichy",
+  },
+  {
+    title: "Des Crêpes, des crêpes !",
+    description: "Crêpier Gourmet offers a menu entirely made of crêpes — mostly savory, but also sweet. If you’ve never tried a savory crêpe, this is the place to start!",
+    link: "https://maps.app.goo.gl/TJRYJaW6V4qZPj7b9",
+    imgSrc: "/img/crepe.jpg",
+    imgAlt: "Crêpier Gourmet",
+  },
+  {
+    title: "Sushis !",
+    description: "Kawasaki is a classic sushi spot with a simple, no-frills menu featuring all the essentials — from fresh sushi to flavorful maki rolls. Perfect for anyone craving Japanese flavors in the neighborhood.",
+    link: "https://maps.app.goo.gl/4SbqVHBy9wVmzQXh8",
+    imgSrc: "/img/sushis2.jpg",
+    imgAlt: "Japonais Kawasaki",
   },
   {
     title: "Coming Soon !",
@@ -61,7 +82,7 @@ export default function District() {
     <section className={styles.district} aria-label="Points d’intérêt du quartier" id="district">
       <h2 className={styles.district__title}>Hood</h2>
       <p className={styles.district__intro}>
-        The neighborhood is a peaceful area where you can find everything you need — from a restaurant, a wine cellar, and a cheese shop to a bakery — offering plenty to enjoy and making it easy to savor the local life. Click on the item to have the location.
+        The neighborhood is a peaceful area where you can find everything you need — from a restaurant, a wine cellar, and a cheese shop to a bakery — offering plenty to enjoy and making it easy to savor the local life. <strong>Click on the item to have the location.</strong>
       </p>
 
       <div className={styles.district__grid}>
