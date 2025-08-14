@@ -27,7 +27,7 @@ const NEARBY_SPOTS = [
   {
     title: "Cobbler",
     description:
-      "Shoe repair, key cutting, leather care, quick and convenient.",
+      "Shoe repair, leather care, quick and convenient.",
     imgSrc: "/img/cordonier4.jpg",
     imgAlt: "Cobbler near the apartment",
     mapsUrl: "https://maps.app.goo.gl/91QjsojA55STUBzv9",
