@@ -13,7 +13,7 @@ const HOME_ANCHORS = [
 
 const PARIS_ANCHORS = [
   { targetId: "food", label: "Food" },
-  // { targetId: "museum", label: "Museum" },
+  { targetId: "spots", label: "Spots" },
   { targetId: "drink", label: "Drink" },
 ];
 

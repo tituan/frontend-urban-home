@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import styles from "@/styles/pages/paris.module.scss";
 import Food from "@/components/FoodParis";
 import Drink from "@/components/DrinkParis";
+import CityPicks from "@/components/CityPicks";
 
 export default function ParisPage() {
   return (
@@ -16,6 +17,7 @@ export default function ParisPage() {
           <PresentationParis />
           <Food />
           <Drink />
+          <CityPicks />
           <Footer />
         </main>
       </div>
