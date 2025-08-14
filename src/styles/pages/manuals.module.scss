@@ -46,7 +46,7 @@
   &__card {
     background: $color-green-dark;
     border: 1px solid $color-green;
-    border-radius: 12px;
+    border-radius: 5px;
     padding: 16px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
   }
@@ -61,7 +61,7 @@
   &__imgWrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;        /* carré visuel */
+    aspect-ratio: 4 / 5;       
     overflow: hidden;
     border-radius: 8px;
   }

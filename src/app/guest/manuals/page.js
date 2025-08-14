@@ -67,6 +67,48 @@ export default function ManualsPage() {
             </div>
         </div>
         </section>
+        <section id="tv" className={styles.tv}>
+        <div className={styles.tv__container}>
+            <h2 className={styles.tv__title}>How to Use the Washing Machine</h2>
+            <p className={styles.tv__intro}>
+            To operate the washing machine, first select the desired program, then press the Start button.
+The quickest program, suitable for most laundry, is Turn and GO. 
+You can also adjust the spin speed according to your needs.
+Pour the detergent into compartment number 2, and if you are using fabric softener, place it in the central compartment marked with a star symbol.
+            </p>
+
+            <div className={styles.tv__grid}>
+            {/* Part 1: Remote */}
+            <div className={styles.tv__card}>
+                <h3 className={styles.tv__cardTitle}>Select and Start Program</h3>
+                <div className={styles.tv__imgWrap}>
+                <Image
+                    src="/img/washing.png" 
+                    alt="Program instructions"
+                    width={700}
+                    height={900}
+                    className={styles.tv__img}
+                    priority
+                />
+                </div>
+            </div>
+
+            {/* Part 2: Inputs & Channels */}
+            <div className={styles.tv__card}>
+                <h3 className={styles.tv__cardTitle}>Where to Put the Laundry Products</h3>
+                <div className={styles.tv__imgWrap}>
+                <Image
+                    src="/img/product.png" 
+                    alt="How to put product"
+                    width={700}
+                    height={900}
+                    className={styles.tv__img}
+                />
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
 
     </div>
   );
