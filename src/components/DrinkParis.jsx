@@ -47,14 +47,14 @@ const DRINK = [
     siteUrl: "https://www.terrass-hotel.com/",
     mapsUrl: "https://maps.app.goo.gl/4n15eQ5BLWUL4GAc7",
   },
-//   {
-//     title: "B.O.U.L.O.M",
-//     description: "Is a hidden gem in the north of the 18th arrondissement. From the outside, it may look like a simple bakery-restaurant, but walk through to the back and you’ll find a bright, spacious hall serving an all-you-can-eat French buffet. Cozy vibes, generous dishes, and authentic home-style cooking make it a true treat. Reservations are essential — and this is THE brunch to try in Paris.",
-//     imgSrc: "/img/boulom.jpg",
-//     imgAlt: "B.O.U.L.O.M",
-//     siteUrl: "https://www.boulom.net/",
-//     mapsUrl: "https://maps.app.goo.gl/iFpnDsN6bTATJ1nh7",
-//   },
+  {
+    title: "The Hoxton",
+    description: "Nestled between the Grands Boulevards and the Sentier, this stylish hotel is the perfect spot for a drink after a day of shopping in the heart of Paris. With its beautiful setting and relaxed atmosphere, it’s ideal for recharging your energy. You can enjoy a cocktail in the charming courtyard or at the elegant bar. A chic and vibrant place to experience Paris like a local.",
+    imgSrc: "/img/hoxton.webp",
+    imgAlt: "The Hoxton",
+    siteUrl: "https://thehoxton.com/paris/jacques-bar/",
+    mapsUrl: "https://maps.app.goo.gl/EsudZaTac6fvDAHW6",
+  },
 ];
 
 export default function Drink() {
