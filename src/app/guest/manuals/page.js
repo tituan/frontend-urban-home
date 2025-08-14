@@ -41,7 +41,7 @@ export default function ManualsPage() {
                 <h3 className={styles.tv__cardTitle}>TV Remote</h3>
                 <div className={styles.tv__imgWrap}>
                 <Image
-                    src="/img/tv-manuals.png"      // ← remplace par ton image
+                    src="/img/tv-manuals.jpg"      // ← remplace par ton image
                     alt="TV remote instructions"
                     width={700}
                     height={900}
@@ -56,7 +56,7 @@ export default function ManualsPage() {
                 <h3 className={styles.tv__cardTitle}>Box Remote</h3>
                 <div className={styles.tv__imgWrap}>
                 <Image
-                    src="/img/boxremote.png"      // ← remplace par ton image
+                    src="/img/boxremote.jpg"      // ← remplace par ton image
                     alt="How to select inputs and channels"
                     width={700}
                     height={900}
@@ -83,7 +83,7 @@ Pour the detergent into compartment number 2, and if you are using fabric soften
                 <h3 className={styles.tv__cardTitle}>Select and Start Program</h3>
                 <div className={styles.tv__imgWrap}>
                 <Image
-                    src="/img/washing.png" 
+                    src="/img/washing.jpg" 
                     alt="Program instructions"
                     width={700}
                     height={900}
@@ -98,7 +98,7 @@ Pour the detergent into compartment number 2, and if you are using fabric soften
                 <h3 className={styles.tv__cardTitle}>Where to Put the Laundry Products</h3>
                 <div className={styles.tv__imgWrap}>
                 <Image
-                    src="/img/product.png" 
+                    src="/img/product.jpg" 
                     alt="How to put product"
                     width={700}
                     height={900}
