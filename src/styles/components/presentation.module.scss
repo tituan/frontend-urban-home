@@ -9,15 +9,31 @@
     padding: 50px 20px 70px; 
   }
 
-  &__title {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: $color-white;
-    @include font-size(22);
-    text-transform: uppercase;
-    text-align: center;
-    @include font-size(26);
+  // &__title {
+  //   font-weight: 700;
+  //   margin-bottom: 1rem;
+  //   color: $color-white;
+  //   @include font-size(22);
+  //   text-transform: uppercase;
+  //   text-align: center;
+  //   @include font-size(26);
+  // }
+
+  .title {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+  img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
   }
+}
+
 
   &__text {
     margin: 0 auto;

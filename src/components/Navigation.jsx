@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "@/styles/components/navigation.module.scss";
 
 const HOME_ANCHORS = [
@@ -12,16 +13,39 @@ const HOME_ANCHORS = [
 ];
 
 const PARIS_ANCHORS = [
-  { targetId: "food", label: "Food" },
+  { targetId: "food",  label: "Food" },
   { targetId: "spots", label: "Spots" },
   { targetId: "drink", label: "Drink" },
 ];
 
 export default function Navigation() {
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "";
+  const isHome  = pathname === "/" || pathname === "";
   const isParis = pathname === "/paris";
   const isGuest = pathname.startsWith("/guest");
+
+  // ----- Logo dynamique (src, alt, href cible quand on clique)
+  const { logoSrc, logoAlt, brandHref } = useMemo(() => {
+    if (isParis) {
+      return {
+        logoSrc: "/img/paris-jetaime.png",   
+        logoAlt: "Discover Paris",
+        brandHref: "/paris",
+      };
+    }
+    if (isGuest) {
+      return {
+        logoSrc: "/img/guest-corner.png",
+        logoAlt: "Guest Corner",
+        brandHref: "/guest",
+      };
+    }
+    return {
+      logoSrc: "/img/logo-clichy-urban-home.png",
+      logoAlt: "Clichy Urban Home",
+      brandHref: "/",
+    };
+  }, [isHome, isParis, isGuest]);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
@@ -35,6 +59,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // expose --header-h pour scroll-margin-top
   useEffect(() => {
     const applyHeaderHeightVar = () => {
       const h = barRef.current?.offsetHeight || 0;
@@ -45,6 +70,7 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", applyHeaderHeightVar);
   }, []);
 
+  // surlignage ancre active (home/paris)
   useEffect(() => {
     const anchors = isHome ? HOME_ANCHORS : isParis ? PARIS_ANCHORS : [];
     if (!anchors.length) return;
@@ -52,32 +78,24 @@ export default function Navigation() {
     const els = anchors.map(a => document.getElementById(a.targetId)).filter(Boolean);
     if (!els.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActiveId(visible.target.id);
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveId(visible.target.id);
+    }, {
+      rootMargin: "-20% 0px -55% 0px",
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    });
 
     els.forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, [isHome, isParis]);
 
+  // smooth scroll quand on est sur la bonne page
   const handleAnchorClick = (e, targetId, page) => {
-    const onThisPage =
-      (page === "home" && isHome) ||
-      (page === "paris" && isParis);
-
-    if (!onThisPage) {
-      setDrawerOpen(false);
-      return;
-    }
+    const onThisPage = (page === "home" && isHome) || (page === "paris" && isParis);
+    if (!onThisPage) { setDrawerOpen(false); return; }
 
     e.preventDefault();
     const el = document.getElementById(targetId);
@@ -86,6 +104,7 @@ export default function Navigation() {
     setDrawerOpen(false);
   };
 
+  // liens (droite) selon page
   const desktopLinks = useMemo(() => {
     if (isHome) {
       return [
@@ -105,7 +124,6 @@ export default function Navigation() {
     }
     if (isGuest) {
       return [
-
         { type: "internal", href: "/", label: "Home" },
         { type: "internal", href: "/paris", label: "Discover Paris" },
         { type: "internal", href: "/guest", label: "Guest Corner" },
@@ -161,7 +179,6 @@ export default function Navigation() {
         </Link>
       );
     }
-
     return null;
   };
 
@@ -171,12 +188,25 @@ export default function Navigation() {
     <>
       <header
         ref={barRef}
-        className={`${styles["nav__bar"]} 
-          ${!atTop ? styles["nav__bar--scrolled"] : ""} 
-          ${isParis ? styles["nav__bar--paris"] : ""} 
+        className={`${styles["nav__bar"]}
+          ${!atTop ? styles["nav__bar--scrolled"] : ""}
+          ${isParis ? styles["nav__bar--paris"] : ""}
           ${isGuest ? styles["nav__bar--guest"] : ""}`}
       >
         <div className={styles["nav__inner"]}>
+          {/* Logo à gauche */}
+          <Link href={brandHref} className={styles["nav__brand"]} aria-label={logoAlt}>
+            <Image
+              src={logoSrc}
+              alt={logoAlt}
+              width={120}
+              height={40}
+              className={styles["nav__logo"]}
+              priority
+            />
+          </Link>
+
+          {/* Menu à droite (desktop) */}
           <nav className={styles["nav__desktop-nav"]} aria-label="Main navigation">
             <ul className={styles["nav__menu"]}>
               {desktopLinks.map((item, i) => (
@@ -186,33 +216,45 @@ export default function Navigation() {
               ))}
             </ul>
           </nav>
+
+          {/* Burger (mobile) */}
           <button
             className={styles["nav__burger"]}
             aria-label="Open menu"
             aria-expanded={drawerOpen}
-            onClick={() => setDrawerOpen((v) => !v)}
+            onClick={() => setDrawerOpen(v => !v)}
           >
-            <span />
-            <span />
-            <span />
+            <span/>
+            <span/>
+            <span/>
           </button>
         </div>
       </header>
 
+      {/* Drawer mobile */}
       <aside
-        className={`${styles["nav__drawer"]} 
-          ${drawerOpen ? styles["nav__drawer--open"] : ""} 
-          ${isParis ? styles["nav__drawer--paris"] : ""} 
+        className={`${styles["nav__drawer"]}
+          ${drawerOpen ? styles["nav__drawer--open"] : ""}
+          ${isParis ? styles["nav__drawer--paris"] : ""}
           ${isGuest ? styles["nav__drawer--guest"] : ""}`}
         role="dialog"
         aria-modal="true"
       >
         <div className={styles["nav__drawer-header"]}>
-          <span className={styles["nav__brand-small"]}>CLICHY URBAN HOME</span>
-          <button className={styles["nav__close"]} aria-label="Close menu" onClick={closeAll}>
-            ✕
-          </button>
+          {/* Logo aussi dans l’entête mobile */}
+          <Link href={brandHref} className={styles["nav__brand-small"]} onClick={closeAll} aria-label={logoAlt}>
+            <Image
+              src={logoSrc}
+              alt={logoAlt}
+              width={110}
+              height={36}
+              className={styles["nav__logo-small"]}
+              priority
+            />
+          </Link>
+          <button className={styles["nav__close"]} aria-label="Close menu" onClick={closeAll}>✕</button>
         </div>
+
         <nav className={styles["nav__drawer-nav"]} aria-label="Mobile navigation">
           <ul className={styles["nav__drawer-menu"]}>
             {desktopLinks.map((item, i) => (
@@ -225,9 +267,9 @@ export default function Navigation() {
       </aside>
 
       <div
-        className={`${styles["nav__scrim"]} 
-          ${drawerOpen ? styles["nav__scrim--visible"] : ""} 
-          ${isParis ? styles["nav__scrim--paris"] : ""} 
+        className={`${styles["nav__scrim"]}
+          ${drawerOpen ? styles["nav__scrim--visible"] : ""}
+          ${isParis ? styles["nav__scrim--paris"] : ""}
           ${isGuest ? styles["nav__scrim--guest"] : ""}`}
         onClick={closeAll}
       />

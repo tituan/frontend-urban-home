@@ -2,37 +2,69 @@
 @use "../base/mixins" as *;
 
 .nav {
-  
+  /* ===== Barre ===== */
   &__bar {
     position: sticky;
     top: 0;
     z-index: 50;
     background: $color-white;
-    border-bottom: 1px solid $color-pink;
+    border-bottom: 1px solid $color-pink; /* défaut (Home) */
     transition: box-shadow 200ms ease, background 200ms ease;
-
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     &--scrolled {
-      box-shadow: 0 6px 20px $shadow-light;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Thème Paris (bleu) */
+    &--paris {
+      border-bottom-color: $color-blue;
+
+      .nav__link        { color: $color-blue-dark; }
+      .nav__link--active{ color: $color-blue-dark; }
+      .nav__brand       { color: $color-blue-dark; }
+      .nav__burger span { background: $color-blue-dark; }
+      .nav__dropdown    { border-color: $color-blue-dark; }
+    }
+
+    /* Thème Guest (vert) */
+    &--guest {
+      border-bottom-color: $color-green;
+
+      .nav__link        { color: $color-green-dark; }
+      .nav__link--active{ color: $color-green-dark; }
+      .nav__brand       { color: $color-green-dark; }
+      .nav__burger span { background: $color-green-dark; }
+      .nav__dropdown    { border-color: $color-green-dark; }
     }
   }
 
+  /* ===== Conteneur interne ===== */
   &__inner {
     max-width: 1100px;
     margin: 0 auto;
     padding: 10px 16px;
     display: flex;
     align-items: center;
-    justify-content: center;  
-}
+    justify-content: space-between; /* logo à gauche, menu/burger à droite */
+    gap: 16px;
+  }
 
-  &__brand {
-    font-family: $font-secondary;
-    font-weight: 600;
-    color: $color-pink-dark;
+  /* ===== Logo / marque ===== */
+  &__brand,
+  &__brand-small {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
   }
 
-  /* ----- Burger (mobile) ----- */
+  &__logo,
+  &__logo-small {
+    display: block;
+    width: auto;
+    height: 50px;
+  }
+
+  /* ===== Burger (mobile) ===== */
   &__burger {
     margin-left: auto;
     width: 30px;
@@ -45,9 +77,10 @@
     span {
       width: 20px;
       height: 2px;
-      background: $color-pink-dark;
+      background: $color-pink-dark; /* défaut (Home) */
       margin: 2px 0;
       display: block;
+      transition: background 200ms ease;
     }
 
     @include desktop {
@@ -55,7 +88,7 @@
     }
   }
 
-  /* ----- Nav desktop ----- */
+  /* ===== Nav desktop ===== */
   &__desktop-nav {
     display: none;
 
@@ -92,24 +125,24 @@
 
   &__link {
     text-decoration: none;
-    color: $color-pink-dark;
+    color: $color-pink-dark; /* défaut (Home) */
     @include font-size(14);
     padding: 8px 4px;
     display: inline-block;
+    transition: opacity 160ms ease;
 
-    &:hover {
-      opacity: 0.75;
-    }
+    &:hover { opacity: 0.75; }
 
     &--sub {
       padding: 8px 10px;
 
-      &:hover {
-        background: $overlay-dark;
-      }
+      &:hover { background: $overlay-dark; }
     }
+
+    &--active { color: $color-pink-dark; } /* défaut (Home) */
   }
 
+  /* ===== Dropdown desktop ===== */
   &__dropdown {
     @include desktop {
       position: absolute;
@@ -117,7 +150,7 @@
       left: 0;
       min-width: 220px;
       background: $color-white;
-      border: 1px solid $color-pink-dark;
+      border: 1px solid $color-pink-dark; /* défaut (Home) */
       border-radius: 12px;
       box-shadow: 0 12px 30px $shadow-light;
       padding: 8px;
@@ -131,12 +164,10 @@
     }
   }
 
-  /* ----- Drawer mobile ----- */
+  /* ===== Drawer mobile ===== */
   &__drawer {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; right: 0; bottom: 0;
     width: min(86vw, 360px);
     background: $color-white;
     z-index: 70;
@@ -146,8 +177,22 @@
     display: flex;
     flex-direction: column;
 
-    &--open {
-      transform: translateX(0);
+    &--open { transform: translateX(0); }
+
+    /* Thème Paris */
+    &--paris {
+      .nav__drawer-header { border-bottom: 1px solid $color-blue; }
+      .nav__brand-small   { color: $color-blue-dark; }
+      .nav__link--drawer  { color: $color-blue-dark; }
+      .nav__chevron       { color: $color-blue-dark; }
+    }
+
+    /* Thème Guest */
+    &--guest {
+      .nav__drawer-header { border-bottom: 1px solid $color-green; }
+      .nav__brand-small   { color: $color-green-dark; }
+      .nav__link--drawer  { color: $color-green-dark; }
+      .nav__chevron       { color: $color-green-dark; }
     }
   }
 
@@ -155,14 +200,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
-    border-bottom: 1px solid $color-pink;
-  }
-
-  &__brand-small {
-    font-family: $font-primary;
-    font-weight: 600;
-    color: $color-pink-dark;
+    padding: 10px 16px;
+    border-bottom: 1px solid $color-pink; /* défaut (Home) */
   }
 
   &__close {
@@ -174,9 +213,7 @@
     cursor: pointer;
   }
 
-  &__drawer-nav {
-    overflow-y: auto;
-  }
+  &__drawer-nav { overflow-y: auto; }
 
   &__drawer-menu {
     list-style: none;
@@ -213,12 +250,10 @@
     display: grid;
     gap: 2px;
 
-    &--open {
-      max-height: 400px;
-    }
+    &--open { max-height: 400px; }
   }
 
-  /* ----- Overlay ----- */
+  /* ===== Overlay derrière le drawer ===== */
   &__scrim {
     position: fixed;
     inset: 0;
@@ -235,126 +270,6 @@
   }
 }
 
-.nav__link--active { color: $color-pink-dark; }
-
-// For Paris Page
-
-.nav__bar--paris {
-  border-bottom: 1px solid $color-blue;
-
-  /* liens du menu top */
-  .nav__link {
-    color: $color-blue-dark;
-  }
-  .nav__link:hover {
-    opacity: 0.8;
-  }
-
-  /* état actif (garde si tu veux plus contrasté) */
-  .nav__link--active {
-    color: $color-blue-dark;
-  }
-
-  /* marque si tu l’affiches */
-  .nav__brand {
-    color: $color-blue-dark;
-  }
-
-  /* burger : les barres sont des <span> */
-  .nav__burger span {
-    background: $color-blue-dark;
-  }
-
-  /* dropdown desktop si tu l’utilises */
-  .nav__dropdown {
-    border-color: $color-blue-dark;
-  }
-}
-
-/* Drawer (menu mobile) */
-.nav__drawer--paris {
-  /* si tu veux laisser le fond blanc, garde ceci vide, sinon: */
-  /* background: $color-white; */
-
-  .nav__drawer-header {
-    border-bottom: 1px solid $color-blue;
-  }
-
-  .nav__brand-small {
-    color: $color-blue-dark;
-  }
-
-  .nav__link--drawer {
-    color: $color-blue-dark;
-  }
-
-  .nav__chevron {
-    color: $color-blue-dark;
-  }
-}
-
-/* Overlay mobile (teinte bleutée) */
-.nav__scrim--paris {
-  background-color: rgba(18, 99, 183, 0.4);
-}
-
-// For Guest Page
-
-.nav__bar--guest {
-  border-bottom: 1px solid $color-green;
-
-  /* liens du menu top */
-  .nav__link {
-    color: $color-green-dark;
-  }
-  .nav__link:hover {
-    opacity: 0.8;
-  }
-
-  /* état actif (garde si tu veux plus contrasté) */
-  .nav__link--active {
-    color: $color-green-dark;
-  }
-
-  /* marque si tu l’affiches */
-  .nav__brand {
-    color: $color-green-dark;
-  }
-
-  /* burger : les barres sont des <span> */
-  .nav__burger span {
-    background: $color-green-dark;
-  }
-
-  /* dropdown desktop si tu l’utilises */
-  .nav__dropdown {
-    border-color: $color-green-dark;
-  }
-}
-
-/* Drawer (menu mobile) */
-.nav__drawer--guest {
-  /* si tu veux laisser le fond blanc, garde ceci vide, sinon: */
-  /* background: $color-white; */
-
-  .nav__drawer-header {
-    border-bottom: 1px solid $color-green;
-  }
-
-  .nav__brand-small {
-    color: $color-green-dark;
-  }
-
-  .nav__link--drawer {
-    color: $color-green-dark;
-  }
-
-  .nav__chevron {
-    color: $color-green-dark;
-  }
-}
-
-/* Overlay mobile (teinte bleutée) */
-.nav__scrim--paris {
-  background-color: rgba(18, 99, 183, 0.4);
-}
+/* Overlay teinté par page */
+.nav__scrim--paris { background-color: rgba(18, 99, 183, 0.4); }
+.nav__scrim--guest { background-color: rgba(0, 128, 96, 0.28); } /* ajuste si besoin */

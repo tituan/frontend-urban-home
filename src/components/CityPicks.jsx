@@ -17,6 +17,15 @@ const SPOTS = [
     mapsUrl: "https://maps.app.goo.gl/mqkgjgAwuPJ9haSY6",
   },
   {
+    title: "Puces de Saint-Ouen",
+    description:
+      "Welcoming visitors at the gates of Paris since 1870 and just a 15-minute walk from the apartment, the Puces de Saint-Ouen are a must-see during any trip to Paris. The flea market is made up of different areas, each with its own unique character.The famous Marché Dauphine offers an eclectic mix of music, clothing, and vintage furniture, making it one of the most popular and pleasant spots to browse. You can also explore the Marché Couvert Cambo, or just next door, the Marché Paul Bert Serpette, where you’ll find everything from antique furniture to contemporary pieces.",
+    imgSrc: "/img/puces.jpg",
+    imgAlt: "Les puces de Saint-Ouen",
+    siteUrl: "https://www.pucesdeparissaintouen.com/",
+    mapsUrl: "https://maps.app.goo.gl/DFY5vcPh7sjGSt4W7",
+  },
+  {
     title: "Street ART 13",
     description:
       "Take a stroll through the 13th arrondissement and discover a true open-air museum. Over the years, world-renowned street artists have transformed building facades into massive works of art, giving the neighborhood a vibrant, creative vibe. This project, initiated by Galerie Itinerrance, has brought in some of the most famous names in the scene, including Obey (Shepard Fairey), C215, D*Face, and many more. A must-see for street art lovers and urban explorers.",
@@ -33,15 +42,6 @@ const SPOTS = [
     imgAlt: "Spa ",
     siteUrl: "https://www.spasdefrance.fr/spa/spa-sothys-republique-393/",
     mapsUrl: "https://maps.app.goo.gl/Acub9f78eNPasRcY8",
-  },
-  {
-    title: "Puces de Saint-Ouen",
-    description:
-      "Welcoming visitors at the gates of Paris since 1870 and just a 15-minute walk from the apartment, the Puces de Saint-Ouen are a must-see during any trip to Paris. The flea market is made up of different areas, each with its own unique character.The famous Marché Dauphine offers an eclectic mix of music, clothing, and vintage furniture, making it one of the most popular and pleasant spots to browse. You can also explore the Marché Couvert Cambo, or just next door, the Marché Paul Bert Serpette, where you’ll find everything from antique furniture to contemporary pieces.",
-    imgSrc: "/img/puces.jpg",
-    imgAlt: "Les puces de Saint-Ouen",
-    siteUrl: "https://www.pucesdeparissaintouen.com/",
-    mapsUrl: "https://maps.app.goo.gl/DFY5vcPh7sjGSt4W7",
   },
   {
     title: "Bring a picnic and enjoy the view",
