@@ -7,6 +7,7 @@ import PracticalInfo from "@/components/Practical";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import NearbyHome from "@/components/NearbyHome";
+import ImageLinks from "@/components/LinksPage";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           />
           <Presentation />
           <FlatCarousel />
+          <ImageLinks />
           <District />
           <PracticalInfo />
           <NearbyHome />
