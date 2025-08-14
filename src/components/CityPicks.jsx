@@ -85,7 +85,7 @@ export default function CityPicks() {
   return (
     <section className={styles.spots} id="spots" aria-label="City picks in Paris">
       <div className={styles.spots__container}>
-        <h2 className={styles.spots__title}>City Picks</h2>
+        <h2 className={styles.spots__title}>City Spots</h2>
         <p className={styles.spots__intro}>
           A fresh mix of must-see museums, chill spas, iconic views, and quirky gems.
           A little bit of everything, just tap, go, and vibe-check Paris.
