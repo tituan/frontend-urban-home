@@ -43,6 +43,24 @@ const SPOTS = [
     siteUrl: "https://maps.app.goo.gl/uV92hjAVuKQatQ9T8",
     mapsUrl: "https://maps.app.goo.gl/DFY5vcPh7sjGSt4W7",
   },
+  {
+    title: "Les Buttes-Chaumont",
+    description:
+      "A true landscaped gem in the heart of Paris, perfect for lounging on the sunny lawns at the end of the day, going for a run, or enjoying a drink in one of its charming pavilions. My personal favorite is Rosa Bonheur, a lively spot where all of Paris comes together for an evening aperitif in a unique setting. With its hills, waterfalls, and stunning viewpoints, the Buttes-Chaumont perfectly embody the charm of a Parisian landscaped park. If you get the chance, it’s well worth a visit!",
+    imgSrc: "/img/buttes.webp",
+    imgAlt: "Buttes Chaumont",
+    siteUrl: "https://fr.wikipedia.org/wiki/Parc_des_Buttes-Chaumont",
+    mapsUrl: "https://maps.app.goo.gl/N7SusQTKEQfT8ACR8",
+  },
+  {
+    title: "Maison Berthillon for Ice Cream !",
+    description:
+      "One of the best artisanal ice creams in Paris, Maison Berthillon is famous for its delicious, high-quality flavors, whether enjoyed on the spot or taken to go. It’s so good that there’s almost always a line — but trust me, it’s worth the wait. Once you have your cone or cup, stroll over to the quays of Île Saint-Louis and savor it by the Seine. A simple, nostalgic pleasure that feels purely magical.",
+    imgSrc: "/img/bertillon.jpg",
+    imgAlt: "Maison Berthillon",
+    siteUrl: "https://berthillon.fr/",
+    mapsUrl: "https://maps.app.goo.gl/cC92FSFJvavenNry9",
+  },
 ];
 
 export default function CityPicks() {
