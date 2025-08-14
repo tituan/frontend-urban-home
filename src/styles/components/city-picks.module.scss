@@ -28,18 +28,21 @@
   }
 
   /* GRID: 1 col mobile, 2 cols desktop + hauteurs égales par rangée */
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    align-items: stretch;              /* étire les items */
-    grid-auto-rows: 1fr;               /* force des hauteurs égales par rangée */
+ &__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
 
-    @include desktop {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+  /* 🔹 Mobile : pas de grid-auto-rows pour laisser le contenu déterminer la hauteur */
+  align-items: start;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;  /* égalise les hauteurs */
+    grid-auto-rows: 1fr;
   }
+}
 
   /* CARD: encadré + layout flex pour coller les actions en bas */
   &__card {
