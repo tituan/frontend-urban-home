@@ -1,11 +1,13 @@
+// app/layout.tsx (ou .js)
 import "../styles/main.scss";
 import { Quicksand, Montserrat, Noto_Sans_Mono } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false;
+import Script from "next/script"; // ⬅️ important
 
+config.autoAddCss = false;
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -25,6 +27,9 @@ const notoSansMono = Noto_Sans_Mono({
   variable: "--font-noto-sans-mono",
 });
 
+// Idéal: mets l'ID dans .env.local -> NEXT_PUBLIC_GTM_ID=GTM-5LW9D59R
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5LW9D59R";
+
 export const metadata = {
   title: "CLICHY URBAN HOME",
   description:
@@ -41,8 +46,33 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${quicksand.variable} ${montserrat.variable} ${notoSansMono.variable}`}>
+    <html
+      lang="fr"
+      className={`${quicksand.variable} ${montserrat.variable} ${notoSansMono.variable}`}
+    >
+      <head>
+        {/* GTM dans le <head>, le plus haut possible */}
+        <Script id="gtm-init" strategy="beforeInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${GTM_ID}');
+          `}
+        </Script>
+      </head>
       <body>
+        {/* Noscript GTM juste après l’ouverture du <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         {children}
       </body>
     </html>
