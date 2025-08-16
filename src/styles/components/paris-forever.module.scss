@@ -1,0 +1,75 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.section {
+  padding: 50px 20px;
+  width: 100%;
+  border-bottom: 1px solid $color-blue-dark;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: $font-primary;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-blue-dark;
+  margin-bottom: 12px;
+  @include font-size(26);
+}
+
+.sliderWrap {
+  .slick-slide {
+    padding: 0 8px;
+  }
+
+  .slick-list {
+    margin: 0 -8px;
+  }
+
+  // 🔹 Custom dots (style identique à flat__slider mais en bleu)
+  :global(.slick-dots) {
+    bottom: -28px;
+
+    li {
+      margin: 0 6px;
+      width: 15px;
+      height: 15px;
+
+      button {
+        width: 15px;
+        height: 15px;
+      }
+
+      button:before {
+        font-size: 14px;
+        color: $color-blue-dark; // 🔹 bleu à la place du rose
+        opacity: 0.6;
+        transition: all 0.2s ease;
+      }
+
+      &.slick-active button:before {
+        font-size: 18px;
+        color: $color-blue-dark; // 🔹 bleu actif
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.slide {
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 0; // pas de coins arrondis
+}
+
+

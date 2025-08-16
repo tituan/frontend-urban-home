@@ -6,6 +6,7 @@ import styles from "@/styles/pages/paris.module.scss";
 import Food from "@/components/FoodParis";
 import Drink from "@/components/DrinkParis";
 import CityPicks from "@/components/CityPicks";
+import ParisForeverSlider from "@/components/ParisForeverSlider";
 
 export default function ParisPage() {
   return (
@@ -15,6 +16,7 @@ export default function ParisPage() {
         <main className={styles.main}>
           <Hero src="/img/paris-jetaime.png" alt="Paris Discover" isHeading />
           <PresentationParis />
+          <ParisForeverSlider/>
           <Food />
           <Drink />
           <CityPicks />
