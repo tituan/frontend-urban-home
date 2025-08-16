@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import styles from "@/styles/pages/guest.module.scss";
 
-const ACCESS_CODE = "9275";      
-const STORAGE_KEY = "guestAccess"; 
+const ACCESS_CODE = process.env.NEXT_PUBLIC_ACCESS_CODE;
+const STORAGE_KEY = process.env.NEXT_PUBLIC_STORAGE_KEY;
 
 export default function GuestAccess() {
   const router = useRouter();
