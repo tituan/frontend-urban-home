@@ -17,6 +17,9 @@ const slides = [
   { src: "/img/parisjetaime7.PNG", alt: "Paris je t'aime - 2" },
   { src: "/img/parisjetaime6.PNG", alt: "Paris je t'aime - 2" },
   { src: "/img/parisjetaime8.PNG", alt: "Paris je t'aime - 2" },
+  { src: "/img/parisjetaime9.jpg", alt: "Paris je t'aime - 2" },
+  { src: "/img/parisjetaime13.png", alt: "Paris je t'aime - 2" },
+  { src: "/img/parisjetaime11.jpg", alt: "Paris je t'aime - 2" },
 ];
 
 export default function ParisForeverSlider() {
