@@ -2,7 +2,7 @@
 @use "../base/mixins" as *;
 
 .section {
-  padding: 50px 20px;
+  padding: 50px 20px 70px;
   width: 100%;
   border-bottom: 1px solid $color-blue-dark;
 }
@@ -32,7 +32,7 @@
 
   // 🔹 Custom dots (style identique à flat__slider mais en bleu)
   :global(.slick-dots) {
-    bottom: -28px;
+    bottom: -35px;
 
     li {
       margin: 0 6px;
