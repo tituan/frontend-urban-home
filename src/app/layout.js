@@ -51,6 +51,8 @@ export default function RootLayout({ children }) {
       className={`${quicksand.variable} ${montserrat.variable} ${notoSansMono.variable}`}
     >
       <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         {/* GTM dans le <head>, le plus haut possible */}
         <Script id="gtm-init" strategy="beforeInteractive">
           {`
