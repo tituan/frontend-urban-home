@@ -42,6 +42,14 @@ export default function Footer() {
         <p className={styles.footer__copy}>
           © {new Date().getFullYear()} | Made by Me with{" "}
           <FontAwesomeIcon icon={faHeart} className={styles.footer__heart} />
+          <a
+            href="https://paname-studio.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footer__link}
+          >
+            PANAME STUDIO©
+          </a>
         </p>
       </div>
     </footer>
