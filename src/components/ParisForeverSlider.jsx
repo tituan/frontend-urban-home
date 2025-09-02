@@ -10,6 +10,7 @@ const Slick = dynamic(() => import("react-slick"), { ssr: false });
 const slides = [
 
   { src: "/img/parisjetaime3.PNG", alt: "Paris je t'aime - 3" },
+  { src: "/img/parisjetaime22.webp", alt: "Paris je t'aime - 2" },
   { src: "/img/parisjetaime4.PNG", alt: "Paris je t'aime - 4" },
   { src: "/img/parisjetaime1.PNG", alt: "Paris je t'aime - 1" },
   { src: "/img/parisjetaime5.PNG", alt: "Paris je t'aime - 1" },
@@ -20,6 +21,9 @@ const slides = [
   { src: "/img/parisjetaime9.jpg", alt: "Paris je t'aime - 2" },
   { src: "/img/parisjetaime13.png", alt: "Paris je t'aime - 2" },
   { src: "/img/parisjetaime11.jpg", alt: "Paris je t'aime - 2" },
+  { src: "/img/parisjetaime20.webp", alt: "Paris je t'aime - 2" },
+  { src: "/img/parisjetaime21.webp", alt: "Paris je t'aime - 2" },
+  
 ];
 
 export default function ParisForeverSlider() {
