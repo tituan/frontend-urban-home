@@ -9,6 +9,12 @@ import Script from "next/script"; // ⬅️ important
 
 config.autoAddCss = false;
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+
 const quicksand = Quicksand({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],

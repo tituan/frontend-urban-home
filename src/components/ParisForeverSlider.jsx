@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "@/styles/components/paris-forever.module.scss";
 
 const Slick = dynamic(() => import("react-slick"), { ssr: false });
@@ -25,6 +25,15 @@ const slides = [
 ];
 
 export default function ParisForeverSlider() {
+  const [width, setWidth] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    handleResize(); // Définit la largeur au montage
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const settings = useMemo(
     () => ({
       dots: true,
@@ -37,14 +46,14 @@ export default function ParisForeverSlider() {
       slidesToShow: 4, // Desktop
       slidesToScroll: 1,
       responsive: [
-        {
-          breakpoint: 1024, // < 1024px
-          settings: { slidesToShow: 2 }, // Mobile = 2 slides
-        },
+        { breakpoint: 1024, settings: { slidesToShow: 2 } }, // Tablette / mobile
+        { breakpoint: 640, settings: { slidesToShow: 1 } },  // Petit mobile
       ],
     }),
     []
   );
+
+  if (!width) return null; // On attend d'avoir la largeur avant d'afficher
 
   return (
     <section
@@ -56,9 +65,9 @@ export default function ParisForeverSlider() {
         <h2 id="paris-forever-title" className={styles.title}>
           Paris Forever
         </h2>
-
         <div className={styles.sliderWrap}>
-          <Slick {...settings}>
+          {/* 🔑 Force Slick à se recharger quand la largeur change */}
+          <Slick key={width} {...settings}>
             {slides.map((s, i) => (
               <div key={i} className={styles.slide}>
                 <Image
